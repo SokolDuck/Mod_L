@@ -4,10 +4,10 @@ import numpy as np
 
 
 class Generator:
-    def __init__(self, a=A, b=B, x0=X0):
+    def __init__(self, a=A, b=B, random_generator=None):
         self.a = a
         self.b = b
-        self.x = x0
+        self.random_generator = random_generator
 
     def mean(self):
         raise NotImplementedError
