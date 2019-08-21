@@ -10,8 +10,7 @@ class UniformDistribution(Generator):
         return (self.b - self.a) ** 2 / 12
 
     def next_random(self):
-        self.x = self.a + (self.b - self.a) * self.x
-        return self.x
+        return self.a + (self.b - self.a) * self.x
 
 
 if __name__ == '__main__':
