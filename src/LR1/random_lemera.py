@@ -1,4 +1,4 @@
-from LR1.constants import X0, A, M
+from src.LR1.constants import X0, A, M
 
 
 class LemerRandomGenerator:
