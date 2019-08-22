@@ -3,6 +3,7 @@ from src.LR2_random_with_given_distribution.utils import Generator, run
 
 class UniformDistribution(Generator):
     DISTRIBUTION_NAME = 'Uniform distribution'
+    have_ideal_example = True
 
     def mean(self):
         return (self.a + self.b) / 2
@@ -12,6 +13,9 @@ class UniformDistribution(Generator):
 
     def next_random(self):
         return self.a + (self.b - self.a) * self.random_generator.get_next_random()
+
+    def ideal_example(self, sequence, *args, **kwargs):
+        return [self.a, self.b], [1 / (self.b - self.a), 1 / (self.b - self.a)]
 
 
 if __name__ == '__main__':

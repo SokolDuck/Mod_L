@@ -35,13 +35,13 @@ def generate_random_sequence(generator_obj, sequence_size=COUNT, *args, **kwargs
 
 
 def build_histogram(sequence: list, hist_size: int = HIST_SIZE, distribution_gen: Generator = None, **kwargs):
-    n, bins, patches = plt.hist(sequence, hist_size, alpha=0.75)
+    n, bins, patches = plt.hist(sequence, hist_size, alpha=0.75, normed=True)
 
     if distribution_gen:
         plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
 
         if distribution_gen.have_ideal_example:
-            x, y = distribution_gen.ideal_example(bins)
+            x, y = distribution_gen.ideal_example(sequence, **kwargs)
             plt.plot(x, y, '-r')
         else:
             plt.plot(bins[:-1], [patch._y1 for patch in patches], '-r')

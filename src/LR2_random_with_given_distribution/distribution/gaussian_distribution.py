@@ -26,8 +26,9 @@ class GaussianDistribution(Generator):
     def params(self):
         return r'mu = {}, sigma = {}, n = {}'.format(self.mu, self.sigma, self.n)
 
-    def ideal_example(self, bins, N=COUNT):
-        return bins, norm.pdf(bins)
+    def ideal_example(self, bins, N=COUNT, **kwargs):
+        x = sorted(bins)
+        return x, norm.pdf(x, self.mu, self.sigma)
 
 
 if __name__ == '__main__':
