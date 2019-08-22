@@ -1,9 +1,9 @@
-from src.LR1.random_lemera import LemerRandomGenerator
-from src.LR2_random_with_given_distribution.utils import (Generator, build_histogram, print_sequence_on_plt,
-                                                          get_mean_and_var, generate_random_sequence, run)
+from src.LR2_random_with_given_distribution.utils import Generator, run
 
 
 class TriangularDistribution(Generator):
+    DISTRIBUTION_NAME = 'Triangular distribution'
+
     def next_random(self, *args, **kwargs):
         left_right_triangular = kwargs.get('left_right_triangular', False)
 

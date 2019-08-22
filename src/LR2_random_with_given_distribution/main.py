@@ -1,3 +1,4 @@
+from src.LR2_random_with_given_distribution.distribution.exponential_distribution import ExponentialDistribution
 from src.LR2_random_with_given_distribution.distribution.gaussian_distribution import GaussianDistribution
 from src.LR2_random_with_given_distribution.distribution.simpson_distribution import SimpsonDistribution
 from src.LR2_random_with_given_distribution.distribution.triangular_distribution import TriangularDistribution
@@ -13,3 +14,7 @@ if __name__ == '__main__':
     run(SimpsonDistribution)
 
     run(GaussianDistribution)
+
+    run(ExponentialDistribution, l=0.5)
+    run(ExponentialDistribution, l=1)
+    run(ExponentialDistribution, l=1.5)

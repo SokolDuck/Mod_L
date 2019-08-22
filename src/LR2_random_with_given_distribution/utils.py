@@ -5,6 +5,9 @@ import numpy as np
 
 
 class Generator:
+    DISTRIBUTION_NAME: str
+    have_ideal_example: bool = False
+
     def __init__(self, a=A, b=B, random_generator: LemerRandomGenerator = None, **kwargs):
         self.a = a
         self.b = b
@@ -19,22 +22,44 @@ class Generator:
     def next_random(self, *args, **kwargs):
         raise NotImplementedError
 
+    @property
+    def params(self):
+        return r'a = {}, b = {}'.format(self.a, self.b)
+
+    def ideal_example(self, *args, **kwargs):
+        raise NotImplementedError
+
 
 def generate_random_sequence(generator_obj, sequence_size=COUNT, *args, **kwargs):
     return [generator_obj.next_random(*args, **kwargs) for _ in range(sequence_size)]
 
 
-def build_histogram(sequence: list, hist_size: int = HIST_SIZE, **kwargs):
-    plt.hist(sequence, hist_size)
+def build_histogram(sequence: list, hist_size: int = HIST_SIZE, distribution_gen: Generator = None, **kwargs):
+    n, bins, patches = plt.hist(sequence, hist_size, alpha=0.75)
+
+    if distribution_gen:
+        plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
+
+        if distribution_gen.have_ideal_example:
+            x, y = distribution_gen.ideal_example(bins)
+            plt.plot(x, y, '-r')
+        else:
+            plt.plot(bins[:-1], [patch._y1 for patch in patches], '-r')
+
     plt.show()
 
 
-def print_sequence_on_plt(seq):
+def print_sequence_on_plt(seq, distribution_gen: Generator = None, **kwargs):
+    if distribution_gen:
+        plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
     plt.plot(range(len(seq)), seq, 'bo')
     plt.show()
 
 
-def get_mean_and_var(generator_obj, seq: list = None):
+def get_mean_and_var(generator_obj: Generator, seq: list = None, **kwargs):
+    print('-' * 32)
+    print(f'{generator_obj.DISTRIBUTION_NAME}')
+
     print(f'Mean = {generator_obj.mean()}')
 
     if seq:
@@ -43,7 +68,7 @@ def get_mean_and_var(generator_obj, seq: list = None):
     print(f'Var = {generator_obj.var()}')
 
     if seq:
-        print(f'check var = {np.var(seq)}')
+        print(f'check var = {np.var(seq)}\n')
 
 
 LAMER_RANDOM_GENERATOR = None
@@ -60,11 +85,13 @@ def run(distribution_class, **kwargs):
         - a: float
         - b: float
         params_for_gaussian
-        - m: float
-        - sko: float
+        - mu: float - mat ojidanie
+        - sigma: float - sko
         - n: int
         params_for_triangular
         - left_right_triangular: bool
+        params_for_exponential
+        - l: float - lambda
     :return: None
     """
     global LAMER_RANDOM_GENERATOR
@@ -76,6 +103,6 @@ def run(distribution_class, **kwargs):
     generator_obj = distribution_class(random_generator=random_generator_obj, **kwargs)
     seq = generate_random_sequence(generator_obj, **kwargs)
 
-    build_histogram(seq, **kwargs)
-    print_sequence_on_plt(seq)
+    build_histogram(seq, distribution_gen=generator_obj, **kwargs)
+    print_sequence_on_plt(seq, distribution_gen=generator_obj)
     get_mean_and_var(generator_obj, seq)

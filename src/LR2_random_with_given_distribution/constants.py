@@ -1,5 +1,5 @@
 COUNT = 5000
-HIST_SIZE = 20
+HIST_SIZE = 50
 
 
 # uniform distribution
@@ -9,6 +9,9 @@ B = 200
 
 # gaussian distribution
 
-M = 100
-SKO = 6
+MU = 100
+SIGMA = 15
 N = 6  # 6-12
+
+# exponential distribution
+LAMBDA = 12

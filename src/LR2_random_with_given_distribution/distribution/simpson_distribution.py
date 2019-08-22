@@ -4,6 +4,8 @@ from src.LR2_random_with_given_distribution.utils import Generator, run
 
 
 class SimpsonDistribution(Generator):
+    DISTRIBUTION_NAME = 'Simpson distribution'
+
     def __init__(self, *args, **kwargs):
         random_generator = kwargs.get('random_generator')
         super().__init__(*args, **kwargs)

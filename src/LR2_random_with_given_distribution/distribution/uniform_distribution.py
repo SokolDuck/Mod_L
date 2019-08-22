@@ -1,7 +1,9 @@
-from src.LR2_random_with_given_distribution.utils import (Generator, run)
+from src.LR2_random_with_given_distribution.utils import Generator, run
 
 
 class UniformDistribution(Generator):
+    DISTRIBUTION_NAME = 'Uniform distribution'
+
     def mean(self):
         return (self.a + self.b) / 2
 
