@@ -1,8 +1,6 @@
-from src.LR1.random_lemera import LemerRandomGenerator
 from src.LR2_random_with_given_distribution.constants import A, B
-from src.LR2_random_with_given_distribution.uniform_distribution import UniformDistribution
-from src.LR2_random_with_given_distribution.utils import Generator, generate_random_sequence, build_histogram, \
-    print_sequence_on_plt, get_mean_and_var, run
+from src.LR2_random_with_given_distribution.distribution.uniform_distribution import UniformDistribution
+from src.LR2_random_with_given_distribution.utils import Generator, run
 
 
 class SimpsonDistribution(Generator):
