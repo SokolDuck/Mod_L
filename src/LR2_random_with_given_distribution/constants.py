@@ -15,3 +15,6 @@ N = 6  # 6-12
 
 # exponential distribution
 LAMBDA = 12
+
+# gamma distribution
+ITA = 1

@@ -92,6 +92,9 @@ def run(distribution_class, **kwargs):
         - left_right_triangular: bool
         params_for_exponential
         - l: float - lambda
+        params_for_gamma
+        - l: float - lambda
+        - ita: int - ita
     :return: None
     """
     global LAMER_RANDOM_GENERATOR
