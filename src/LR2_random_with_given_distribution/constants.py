@@ -1,10 +1,14 @@
-COUNT = 1000
+COUNT = 5000
 HIST_SIZE = 20
 
 
 # uniform distribution
 
-BIT_COUNT = 8
-A = 111
-B = 240
-X0 = 251
+A = 100
+B = 200
+
+# gaussian distribution
+
+M = 100
+SKO = 6
+N = 6  # 6-12
