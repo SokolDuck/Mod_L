@@ -5,6 +5,7 @@ from src.LR2_random_with_given_distribution.distribution.triangular_distribution
 from src.LR2_random_with_given_distribution.distribution.uniform_distribution import UniformDistribution
 from src.LR2_random_with_given_distribution.utils import run
 
+
 if __name__ == '__main__':
     run(UniformDistribution)
 
