@@ -107,5 +107,5 @@ def run(distribution_class, **kwargs):
     seq = generate_random_sequence(generator_obj, **kwargs)
 
     build_histogram(seq, distribution_gen=generator_obj, **kwargs)
-    print_sequence_on_plt(seq, distribution_gen=generator_obj)
+    # print_sequence_on_plt(seq, distribution_gen=generator_obj)
     get_mean_and_var(generator_obj, seq)

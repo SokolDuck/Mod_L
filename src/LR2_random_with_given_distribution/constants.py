@@ -1,4 +1,4 @@
-COUNT = 500
+COUNT = 5000
 HIST_SIZE = 50
 
 

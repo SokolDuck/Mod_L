@@ -21,12 +21,19 @@ class GammaDistribution(Generator):
         return (-1 / self._lambda) * sum([np.log(self.random_generator.get_next_random()) for _ in range(self.ita)])
 
     def ideal_example(self, sequence, *args, **kwargs):
-        _max = max(sequence)
-        x = [self.random_generator.get_next_random() * _max for _ in range(len(sequence))]
-        x = sorted(x)
-        con = (self._lambda ** self.ita) / math.factorial(self.ita - 1)
+        # distribution density
+        #                                                 lambda ** ita
+        #   ? x>0 = x ** (ita - 1) * e ** (-x * lambda) * --------------
+        #                                                 (ita - 1) !
 
-        return x, [con * (i ** (self.ita - 1)) * np.e ** (-i * self.ita) for i in x]
+        #                               e ** (-x / lambda)
+        #   ? x>0 = x ** (ita - 1) * ------------------------------
+        #                               lambda ** ita * (ita - 1) !
+
+        x = sorted(sequence)
+        con = self._lambda ** self.ita / math.factorial(self.ita - 1)
+
+        return x, [con * i ** (self.ita - 1) * np.e ** (-i * self._lambda) for i in x]
 
     def mean(self):
         return self.ita / self._lambda
@@ -40,6 +47,13 @@ class GammaDistribution(Generator):
 
 
 if __name__ == '__main__':
-    run(GammaDistribution, l=1, ita=2)
-    run(GammaDistribution, l=1, ita=3)
-    run(GammaDistribution, l=1, ita=4)
+    run(GammaDistribution, ita=1, l=2)
+    run(GammaDistribution, ita=3, l=2)
+    run(GammaDistribution, ita=4, l=2)
+    run(GammaDistribution, ita=5, l=2)
+
+    # run(GammaDistribution, ita=1, l=2)
+    # run(GammaDistribution, ita=2, l=2)
+    # run(GammaDistribution, ita=3, l=2)
+    # run(GammaDistribution, ita=5, l=1)
+    # run(GammaDistribution, ita=6, l=0.9)
