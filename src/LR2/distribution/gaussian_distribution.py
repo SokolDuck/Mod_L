@@ -2,8 +2,8 @@ import numpy as np
 from scipy.stats import norm
 
 from src.LR1.random_lemera import LemerRandomGenerator
-from src.LR2_random_with_given_distribution.constants import MU, SIGMA, N, COUNT
-from src.LR2_random_with_given_distribution.utils import Generator, run
+from src.LR2.constants import MU, SIGMA, N, COUNT
+from src.LR2.utils import Generator, run
 
 
 class GaussianDistribution(Generator):

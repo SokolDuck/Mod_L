@@ -1,8 +1,8 @@
 import numpy as np
 import math
 
-from src.LR2_random_with_given_distribution.constants import LAMBDA, ITA
-from src.LR2_random_with_given_distribution.utils import Generator, run
+from src.LR2.constants import LAMBDA, ITA
+from src.LR2.utils import Generator, run
 
 
 class GammaDistribution(Generator):

@@ -1,4 +1,4 @@
-from src.LR2_random_with_given_distribution.utils import Generator, run
+from src.LR2.utils import Generator, run
 
 
 class UniformDistribution(Generator):
@@ -11,7 +11,7 @@ class UniformDistribution(Generator):
     def var(self):
         return (self.b - self.a) ** 2 / 12
 
-    def next_random(self):
+    def next_random(self, *args, **kwargs):
         return self.a + (self.b - self.a) * self.random_generator.get_next_random()
 
     def ideal_example(self, sequence, *args, **kwargs):

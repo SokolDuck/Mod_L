@@ -1,5 +1,5 @@
 from src.LR1.random_lemera import LemerRandomGenerator
-from src.LR2_random_with_given_distribution.constants import COUNT, B, A, HIST_SIZE
+from src.LR2.constants import COUNT, B, A, HIST_SIZE
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -34,19 +34,35 @@ def generate_random_sequence(generator_obj, sequence_size=COUNT, *args, **kwargs
     return [generator_obj.next_random(*args, **kwargs) for _ in range(sequence_size)]
 
 
-def build_histogram(sequence: list, hist_size: int = HIST_SIZE, distribution_gen: Generator = None, **kwargs):
-    n, bins, patches = plt.hist(sequence, hist_size, alpha=0.75, normed=True)
+def build_histogram(sequence: list, hist_size: int = HIST_SIZE, distribution_gen: Generator = None, _plt=plt, **kwargs):
+    """
+    :param sequence: list
+    :param hist_size: int
+    :param distribution_gen: Generator
+    :param _plt: plot
+    :param kwargs:
+        - show_title: bool = True
+        - pyqt5: boot = False
+        - show: bool = True
+    :return:
+    """
+    n, bins, patches = _plt.hist(sequence, hist_size, alpha=0.75, density=True)
 
     if distribution_gen:
-        plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
+        if kwargs.get('show_title', True):
+            if kwargs.get('pyqt5', False):
+                _plt.set_title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
+            else:
+                _plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
 
         if distribution_gen.have_ideal_example:
             x, y = distribution_gen.ideal_example(sequence, **kwargs)
-            plt.plot(x, y, '-r')
-        else:
-            plt.plot(bins[:-1], [patch._y1 for patch in patches], '-r')
+            _plt.plot(x, y, '-r')
+        # else:
+        #     _plt.plot(bins[:-1], [patch._y1 for patch in patches], '-r')
 
-    plt.show()
+    if kwargs.get('show', True):
+        _plt.show()
 
 
 def print_sequence_on_plt(seq, distribution_gen: Generator = None, **kwargs):

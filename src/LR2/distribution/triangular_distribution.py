@@ -1,4 +1,4 @@
-from src.LR2_random_with_given_distribution.utils import Generator, run
+from src.LR2.utils import Generator, run
 
 
 class TriangularDistribution(Generator):

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="distribution">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>430</y>
+      <width>211</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="generate_btn">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>430</y>
+      <width>201</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generate</string>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>470</y>
+      <width>68</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mean</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>500</y>
+      <width>68</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>var</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mean_l">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>470</y>
+      <width>68</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="var_l">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>500</y>
+      <width>68</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="sequence_size">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>430</y>
+      <width>211</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>100</number>
+    </property>
+    <property name="maximum">
+     <number>100000</number>
+    </property>
+    <property name="singleStep">
+     <number>10</number>
+    </property>
+    <property name="value">
+     <number>1000</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>410</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>random sequence size</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>410</y>
+      <width>211</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>distribution type</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>460</y>
+      <width>181</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>size of histogram</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="hist_size">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>480</y>
+      <width>211</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>20</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>20</number>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
