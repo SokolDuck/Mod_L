@@ -106,11 +106,16 @@ def run(distribution_class, **kwargs):
         - n: int
         params_for_triangular
         - left_right_triangular: bool
+        - a: float
+        - b: float
         params_for_exponential
         - l: float - lambda
         params_for_gamma
-        - l: float - lambda
-        - ita: int - ita
+        - l: float - lambda (a)
+        - ita: int - ita (k)
+        params_for_simpson
+        - a: float
+        - b: float
     :return: None
     """
     global LAMER_RANDOM_GENERATOR
