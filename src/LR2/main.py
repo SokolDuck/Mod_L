@@ -10,8 +10,8 @@ from src.LR2.utils import run
 if __name__ == '__main__':
     run(UniformDistribution)
 
-    run(TriangularDistribution, left_right_triangular=True)
-    run(TriangularDistribution, left_right_triangular=False)
+    run(TriangularDistribution, left_right_triangular='l')
+    run(TriangularDistribution, left_right_triangular='r')
 
     run(SimpsonDistribution)
 

@@ -13,7 +13,7 @@ import random
 import importlib
 
 from src.LR1.random_lemera import LemerRandomGenerator
-from src.LR2.utils import generate_random_sequence, build_histogram
+from src.LR2.utils import generate_random_sequence, build_histogram, build_plot
 from src.LR2.constants import A, B, LAMBDA, ITA, MU, SIGMA, N, HIST_SIZE, COUNT
 
 distribution_list = [
@@ -116,14 +116,10 @@ class App(QMainWindow):
         # self.setGeometry(self.left, self.top, self.width, self.height)
 
         self.hist = PlotCanvas(self)
-        # self.plot = PlotCanvas(self, width=4, height=4, self.hist)
-        self.hist.move(0, 0)
+        self.plot = PlotCanvas(self, plot=True)
+        self.hist.move(10, 0)
+        self.plot.move(410, 0)
         # self.plot.move(0, 100)
-
-        # button = QPushButton('PyQt5 button', self)
-        # button.setToolTip('This s an example button')
-        # button.move(500, 0)
-        # button.resize(140, 100)
 
         self.generate_btn.clicked.connect(self.button_handler)
         self.distribution.addItems(distribution_list)
@@ -175,13 +171,20 @@ class App(QMainWindow):
             **self.get_distribution_params(distribution_name)
         )
 
+        self.plot.plot(
+            distribution_name,
+            sequence_size=sequence_size,
+            **self.get_distribution_params(distribution_name)
+        )
+
         self.set_mean_var(mean, var)
 
 
 class PlotCanvas(FigureCanvas):
     LAMER_RANDOM_GENERATOR = None
 
-    def __init__(self, parent=None, width=4, height=4, dpi=100):
+    def __init__(self, parent=None, width=4, height=4, dpi=100, plot=False):
+        self.is_plot = plot
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot()
 
@@ -207,16 +210,26 @@ class PlotCanvas(FigureCanvas):
 
         self.axes.clear()
 
-        hist_size = kwargs.get('hist_size')
-        build_histogram(
-            sequence=data,
-            hist_size=hist_size,
-            _plt=self.axes,
-            show=False,
-            distribution_gen=distribution_gen,
-            pyqt5=True,
-            show_title=False
-        )
+        if not self.is_plot:
+            build_histogram(
+                sequence=data,
+                _plt=self.axes,
+                show=False,
+                distribution_gen=distribution_gen,
+                pyqt5=True,
+                show_title=False,
+                **kwargs
+            )
+        else:
+            build_plot(
+                seq=data,
+                _plt=self.axes,
+                show=False,
+                distribution_gen=distribution_gen,
+                pyqt5=True,
+                show_title=False,
+                **kwargs
+            )
 
         # ax.hist(data, hist_size, alpha=0.75, density=True)
         # ax.set_title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')

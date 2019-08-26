@@ -6,9 +6,9 @@ class TriangularDistribution(Generator):
     have_ideal_example = True
 
     def next_random(self, *args, **kwargs):
-        left_right_triangular = kwargs.get('left_right_triangular', False)
+        left_right_triangular = kwargs.get('left_right_triangular', 'l')
 
-        if left_right_triangular:
+        if self.is_left(left_right_triangular):
             return self.a + (self.b - self.a) * min([self.random_generator.get_next_random() for _ in range(2)])
         else:
             return self.a + (self.b - self.a) * max([self.random_generator.get_next_random() for _ in range(2)])

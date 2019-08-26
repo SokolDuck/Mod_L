@@ -65,11 +65,18 @@ def build_histogram(sequence: list, hist_size: int = HIST_SIZE, distribution_gen
         _plt.show()
 
 
-def print_sequence_on_plt(seq, distribution_gen: Generator = None, **kwargs):
-    if distribution_gen:
-        plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
-    plt.plot(range(len(seq)), seq, 'bo')
-    plt.show()
+def build_plot(seq, distribution_gen: Generator = None, _plt=plt, **kwargs):
+
+    if distribution_gen and kwargs.get('show_title', True):
+        if kwargs.get('pyqt5', False):
+            _plt.set_title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
+        else:
+            _plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
+
+    _plt.plot(range(len(seq)), seq, 'bo')
+
+    if kwargs.get('show', True):
+        _plt.show()
 
 
 def get_mean_and_var(generator_obj: Generator, seq: list = None, **kwargs):
