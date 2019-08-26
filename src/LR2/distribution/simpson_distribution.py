@@ -14,7 +14,7 @@ class SimpsonDistribution(Generator):
     def __init__(self, *args, **kwargs):
         random_generator = kwargs.get('random_generator')
         super().__init__(*args, **kwargs)
-        self.uniform_distribution_gen = UniformDistribution(A / 2, B / 2, random_generator=random_generator)
+        self.uniform_distribution_gen = UniformDistribution(self.a / 2, self.b / 2, random_generator=random_generator)
 
     def next_random(self, *args, **kwargs):
         return sum([self.uniform_distribution_gen.next_random() for _ in range(2)])

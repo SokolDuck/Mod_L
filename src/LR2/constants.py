@@ -4,17 +4,17 @@ HIST_SIZE = 50
 
 # uniform distribution
 
-A = 100
-B = 200
+A = 0
+B = 100
 
 # gaussian distribution
 
-MU = 100
-SIGMA = 15
+MU = 50
+SIGMA = 1
 N = 6  # 6-12
 
 # exponential distribution
-LAMBDA = 12
+LAMBDA = 1
 
 # gamma distribution
-ITA = 1
+ITA = 2

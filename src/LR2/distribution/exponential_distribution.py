@@ -10,7 +10,7 @@ class ExponentialDistribution(Generator):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._lambda = kwargs.get('l', LAMBDA)
+        self._lambda = float(kwargs.get('l', LAMBDA))
 
     def next_random(self, *args, **kwargs):
         return -1 / self._lambda * np.log(self.random_generator.get_next_random())

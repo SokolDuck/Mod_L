@@ -12,9 +12,9 @@ class GaussianDistribution(Generator):
 
     def __init__(self, *args, **kwargs):
         super().__init__()
-        self.mu = kwargs.get('mu', MU)
-        self.sigma = kwargs.get('sigma', SIGMA)
-        self.n = kwargs.get('n', N)
+        self.mu = float(kwargs.get('mu', MU))
+        self.sigma = float(kwargs.get('sigma', SIGMA))
+        self.n = int(kwargs.get('n', N))
         self.random_generator = kwargs.get('random_generator', LemerRandomGenerator())
 
     def next_random(self, *args, **kwargs):

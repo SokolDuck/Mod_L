@@ -12,8 +12,8 @@ class GammaDistribution(Generator):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self._lambda = kwargs.get('l', LAMBDA)
-        self.ita = kwargs.get('ita', ITA)
+        self._lambda = float(kwargs.get('l', LAMBDA))
+        self.ita = int(kwargs.get('ita', ITA))
 
     def next_random(self, *args, **kwargs):
         # return -1 / self._lambda * np.log(reduce(lambda x, y: x * y,

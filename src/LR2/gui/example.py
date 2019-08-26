@@ -14,7 +14,7 @@ import importlib
 
 from src.LR1.random_lemera import LemerRandomGenerator
 from src.LR2.utils import generate_random_sequence, build_histogram
-from src.LR2.constants import A, B, LAMBDA, ITA, MU, SIGMA, N
+from src.LR2.constants import A, B, LAMBDA, ITA, MU, SIGMA, N, HIST_SIZE, COUNT
 
 distribution_list = [
     'uniform',
@@ -36,17 +36,17 @@ params = [
 
 distribution_params = {
     'uniform': {
-        'param_1_label': 'A',
+        'param_1_label': 'a',
         'param_1': A,
-        'param_2_label': 'B',
+        'param_2_label': 'b',
         'param_2': B,
     },
     'exponential': {
-            'param_1_label': 'lambda',
+            'param_1_label': 'l',
             'param_1': LAMBDA,
     },
     'gamma': {
-            'param_1_label': 'lambda',
+            'param_1_label': 'l',
             'param_1': LAMBDA,
             'param_2_label': 'ita',
             'param_2': ITA,
@@ -60,41 +60,41 @@ distribution_params = {
             'param_3': N,
     },
     'simpson': {
-            'param_1_label': 'A',
+            'param_1_label': 'a',
             'param_1': A,
-            'param_2_label': 'B',
+            'param_2_label': 'b',
             'param_2': B,
     },
     'triangular': {
-            'param_1_label': 'left or right (l, r)',
+            'param_1_label': 'left_right_triangular',
             'param_1': 'l',
-            'param_2_label': 'A',
+            'param_2_label': 'a',
             'param_2': A,
-            'param_3_label': 'B',
+            'param_3_label': 'b',
             'param_3': B,
     },
 }
 
 """
-params_for_uniform
-- a: float
-- b: float
-params_for_gaussian
-- mu: float - mat ojidanie
-- sigma: float - sko
-- n: int
-params_for_triangular
-- left_right_triangular: bool
-- a: float
-- b: float
-params_for_exponential
-- l: float - lambda
-params_for_gamma
-- l: float - lambda (a)
-- ita: int - ita (k)
-params_for_simpson
-- a: float
-- b: float
+    params_for_uniform:
+        - a: float
+        - b: float
+    params_for_gaussian:
+        - mu: float - mat ojidanie
+        - sigma: float - sko
+        - n: int
+    params_for_triangular:
+        - left_right_triangular: bool
+        - a: float
+        - b: float
+    params_for_exponential:
+        - l: float - lambda
+    params_for_gamma:
+        - l: float - lambda (a)
+        - ita: int - ita (k)
+    params_for_simpson:
+        - a: float
+        - b: float
 """
 
 
@@ -103,7 +103,7 @@ class App(QMainWindow):
         super().__init__(*args, **kwargs)
         self.left = 10
         self.top = 10
-        self.title = 'PyQt5 matplotlib example - pythonspot.com'
+        self.title = 'PyQt5 matplotlib example'
         self.width = 640
         self.height = 400
         self.hist = None
@@ -125,29 +125,43 @@ class App(QMainWindow):
         # button.move(500, 0)
         # button.resize(140, 100)
 
-        for attr in params:
-            getattr(self, attr).setVisible(False)
-
         self.generate_btn.clicked.connect(self.button_handler)
         self.distribution.addItems(distribution_list)
 
         self.distribution.activated[str].connect(self.set_distribution_params)
 
+        self.hist_size.setValue(HIST_SIZE)
+        self.sequence_size.setValue(COUNT)
+
         self.show()
+        self.set_distribution_params(self.distribution.currentText())
         self.button_handler()
 
     def set_mean_var(self, mean, var):
-        self.mean_l.setText(str(mean))
-        self.var_l.setText(str(var))
+        self.mean_l.setText('{0:.2f}'.format(mean))
+        self.var_l.setText('{0:.2f}'.format(var))
 
     def set_distribution_params(self, distribution_name):
+        for attr in params:
+            getattr(self, attr).setVisible(False)
+
         for name, value in distribution_params[distribution_name].items():
             attr = getattr(self, name)
             attr.setVisible(True)
             attr.setText(str(value))
 
     def get_distribution_params(self, distribution_name):
-        return {}
+        attributes = {}
+        label_name = ''
+
+        for name, value in distribution_params[distribution_name].items():
+            attr = getattr(self, name)
+            if name.__contains__('label'):
+                label_name = attr.text()
+            else:
+                attributes[label_name] = attr.text()
+
+        return attributes
 
     def button_handler(self, *args, **kwargs):
         sequence_size = int(self.sequence_size.value())
@@ -178,6 +192,7 @@ class PlotCanvas(FigureCanvas):
                                    QSizePolicy.Expanding,
                                    QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
+
         self.mean, self.var = 0, 0
 
     def plot(self, distribution_name: str, **kwargs):
@@ -185,7 +200,7 @@ class PlotCanvas(FigureCanvas):
         distribution_class = getattr(distribution_module, f'{distribution_name.title()}Distribution')
 
         if not self.LAMER_RANDOM_GENERATOR:
-            self.LAMER_RANDOM_GENERATOR = LemerRandomGenerator(**kwargs)
+            self.LAMER_RANDOM_GENERATOR = LemerRandomGenerator()
 
         distribution_gen = distribution_class(random_generator=self.LAMER_RANDOM_GENERATOR, **kwargs)
         data = generate_random_sequence(distribution_gen, **kwargs)

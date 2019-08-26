@@ -9,8 +9,8 @@ class Generator:
     have_ideal_example: bool = False
 
     def __init__(self, a=A, b=B, random_generator: LemerRandomGenerator = None, **kwargs):
-        self.a = a
-        self.b = b
+        self.a = float(a)
+        self.b = float(b)
         self.random_generator = random_generator
 
     def mean(self):
@@ -105,7 +105,7 @@ def run(distribution_class, **kwargs):
         - sigma: float - sko
         - n: int
         params_for_triangular
-        - left_right_triangular: bool
+        - left_right_triangular: str = l, r
         - a: float
         - b: float
         params_for_exponential
