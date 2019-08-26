@@ -73,7 +73,7 @@ def build_plot(seq, distribution_gen: Generator = None, _plt=plt, **kwargs):
         else:
             _plt.title(f'{distribution_gen.DISTRIBUTION_NAME} {distribution_gen.params}')
 
-    _plt.plot(range(len(seq)), seq, 'bo')
+    _plt.plot(range(len(seq)), seq, 'bo', markersize=1)
 
     if kwargs.get('show', True):
         _plt.show()

@@ -1,5 +1,5 @@
-COUNT = 5000
-HIST_SIZE = 50
+COUNT = 1000
+HIST_SIZE = 20
 
 
 # uniform distribution
