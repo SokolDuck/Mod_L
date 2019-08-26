@@ -2,7 +2,7 @@ from src.LR1.constants import X0, A, M
 
 
 class LemerRandomGenerator:
-    def __init__(self, x0=X0, a=A, m=M):
+    def __init__(self, x0=X0, a=A, m=M, **kwargs):
         self.x0 = x0
         self.a = a
         self.m = m

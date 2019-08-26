@@ -14,6 +14,7 @@ import importlib
 
 from src.LR1.random_lemera import LemerRandomGenerator
 from src.LR2.utils import generate_random_sequence, build_histogram
+from src.LR2.constants import A, B, LAMBDA, ITA, MU, SIGMA, N
 
 distribution_list = [
     'uniform',
@@ -23,6 +24,78 @@ distribution_list = [
     'simpson',
     'triangular',
 ]
+
+params = [
+    'param_1_label',
+    'param_1',
+    'param_2_label',
+    'param_2',
+    'param_3_label',
+    'param_3',
+]
+
+distribution_params = {
+    'uniform': {
+        'param_1_label': 'A',
+        'param_1': A,
+        'param_2_label': 'B',
+        'param_2': B,
+    },
+    'exponential': {
+            'param_1_label': 'lambda',
+            'param_1': LAMBDA,
+    },
+    'gamma': {
+            'param_1_label': 'lambda',
+            'param_1': LAMBDA,
+            'param_2_label': 'ita',
+            'param_2': ITA,
+    },
+    'gaussian': {
+            'param_1_label': 'mu',
+            'param_1': MU,
+            'param_2_label': 'sigma',
+            'param_2': SIGMA,
+            'param_3_label': 'n',
+            'param_3': N,
+    },
+    'simpson': {
+            'param_1_label': 'A',
+            'param_1': A,
+            'param_2_label': 'B',
+            'param_2': B,
+    },
+    'triangular': {
+            'param_1_label': 'left or right (l, r)',
+            'param_1': 'l',
+            'param_2_label': 'A',
+            'param_2': A,
+            'param_3_label': 'B',
+            'param_3': B,
+    },
+}
+
+"""
+params_for_uniform
+- a: float
+- b: float
+params_for_gaussian
+- mu: float - mat ojidanie
+- sigma: float - sko
+- n: int
+params_for_triangular
+- left_right_triangular: bool
+- a: float
+- b: float
+params_for_exponential
+- l: float - lambda
+params_for_gamma
+- l: float - lambda (a)
+- ita: int - ita (k)
+params_for_simpson
+- a: float
+- b: float
+"""
 
 
 class App(QMainWindow):
@@ -45,7 +118,6 @@ class App(QMainWindow):
         self.hist = PlotCanvas(self)
         # self.plot = PlotCanvas(self, width=4, height=4, self.hist)
         self.hist.move(0, 0)
-        self.set_mean_var(self.hist.mean, self.hist.var)
         # self.plot.move(0, 100)
 
         # button = QPushButton('PyQt5 button', self)
@@ -53,23 +125,40 @@ class App(QMainWindow):
         # button.move(500, 0)
         # button.resize(140, 100)
 
+        for attr in params:
+            getattr(self, attr).setVisible(False)
+
         self.generate_btn.clicked.connect(self.button_handler)
         self.distribution.addItems(distribution_list)
 
+        self.distribution.activated[str].connect(self.set_distribution_params)
+
         self.show()
+        self.button_handler()
 
     def set_mean_var(self, mean, var):
         self.mean_l.setText(str(mean))
         self.var_l.setText(str(var))
 
+    def set_distribution_params(self, distribution_name):
+        for name, value in distribution_params[distribution_name].items():
+            attr = getattr(self, name)
+            attr.setVisible(True)
+            attr.setText(str(value))
+
+    def get_distribution_params(self, distribution_name):
+        return {}
+
     def button_handler(self, *args, **kwargs):
         sequence_size = int(self.sequence_size.value())
         hist_size = int(self.hist_size.value())
+        distribution_name = str(self.distribution.currentText())
 
         mean, var = self.hist.plot(
-            str(self.distribution.currentText()),
+            distribution_name,
             sequence_size=sequence_size,
             hist_size=hist_size,
+            **self.get_distribution_params(distribution_name)
         )
 
         self.set_mean_var(mean, var)
@@ -89,7 +178,7 @@ class PlotCanvas(FigureCanvas):
                                    QSizePolicy.Expanding,
                                    QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
-        self.mean, self.var = self.plot(distribution_list[0])
+        self.mean, self.var = 0, 0
 
     def plot(self, distribution_name: str, **kwargs):
         distribution_module = importlib.import_module(f'src.LR2.distribution.{distribution_name}_distribution')
