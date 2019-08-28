@@ -1,0 +1,6 @@
+PyQt5
+cycler
+pip
+numpy
+scipy
+matplotlib
