@@ -7,9 +7,9 @@ split_path = cur_dir.split(os.path.sep)
 while split_path[-1] != 'Mod_L':
     split_path = split_path[:-1]
 
-cat = True
+cat = False
 
-ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', 'image.jpg' if not cat else 'cat.jpg']
+ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', 'image.jpg' if not cat else 'city.jpg']
 
 split_path.extend(ABSOLUT_FILE_PATH)
 

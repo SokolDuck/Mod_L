@@ -1,16 +1,17 @@
 import sys
 
 import numpy as np
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QSizePolicy
 from PyQt5 import uic
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 
 from cosii.LR1.constants import FILE_PATH
 from cosii.LR1.utils import get_img, ImageGenerator
 from src.LR2.utils import generate_random_sequence, build_histogram, build_plot
-
 
 
 class App(QMainWindow):
@@ -64,6 +65,8 @@ class PlotCanvas(FigureCanvas):
 
         if image:
             self.axes.imshow(self.img_obj.get_img(), cmap='gray')
+            plt.imshow(self.img_obj.get_img(), cmap='gray')
+            plt.show()
         elif hist:
             build_histogram(self.img_obj.get_img_as_array(), 255, _plt=self.axes, show=False)
 
@@ -71,7 +74,8 @@ class PlotCanvas(FigureCanvas):
         array = self.img_obj.linear_correction(a=a, b=b)
         self.axes.clear()
         a_ = self.img_obj.get_img_from_array(array=array)
-
+        plt.imshow(a_, cmap='gray')
+        plt.show()
         self.axes.imshow(a_, cmap='gray')
         self.draw()
 
