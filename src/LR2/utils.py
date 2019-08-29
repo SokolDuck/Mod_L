@@ -8,7 +8,7 @@ class Generator:
     DISTRIBUTION_NAME: str
     have_ideal_example: bool = False
 
-    def __init__(self, a=A, b=B, random_generator: LemerRandomGenerator = None, **kwargs):
+    def __init__(self, a=A, b=B, random_generator=None, **kwargs):
         self.a = float(a)
         self.b = float(b)
         self.random_generator = random_generator
