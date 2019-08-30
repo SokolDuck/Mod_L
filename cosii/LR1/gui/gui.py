@@ -33,23 +33,29 @@ class App(QMainWindow):
         self.original = PlotCanvas(self, image=True)
         self.hist = PlotCanvas(self, image=True)
         self.original.move(10, 0)
-        self.hist.move(410, 0)
+        self.hist.move(810, 0)
 
         self.a_slider.valueChanged.connect(self.slider_handler)
         self.b_slider.valueChanged.connect(self.slider_handler)
+        self.btn.clicked.connect(self.build_hist)
 
         self.show()
+        self.slider_handler()
 
     def slider_handler(self):
-        a_value = self.a_slider.value() / 10
+        a_value = self.a_slider.value()
         b_value = self.b_slider.value()
         self.a_value.setText(str(a_value))
         self.b_value.setText(str(b_value))
         self.hist.plot(a=a_value, b=b_value)
 
+    def build_hist(self):
+        self.original.build_hist()
+        self.hist.build_hist()
+
 
 class PlotCanvas(FigureCanvas):
-    def __init__(self, parent=None, width=4, height=4, dpi=100, hist=False, image=False):
+    def __init__(self, parent=None, width=4, height=4, dpi=200, hist=False, image=False):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot()
 
@@ -62,22 +68,25 @@ class PlotCanvas(FigureCanvas):
         FigureCanvas.updateGeometry(self)
 
         self.img_obj = ImageGenerator(file_path=FILE_PATH)
+        self.img = self.img_obj.get_img()
 
         if image:
             self.axes.imshow(self.img_obj.get_img(), cmap='gray')
-            plt.imshow(self.img_obj.get_img(), cmap='gray')
-            plt.show()
+            # plt.imshow(self.img_obj.get_img(), cmap='gray')
+            # plt.show()
         elif hist:
             build_histogram(self.img_obj.get_img_as_array(), 255, _plt=self.axes, show=False)
 
     def plot(self, a=0, b=0):
-        array = self.img_obj.linear_correction(a=a, b=b)
+        array = self.img_obj.linear_correction(a, b)
         self.axes.clear()
-        a_ = self.img_obj.get_img_from_array(array=array)
-        plt.imshow(a_, cmap='gray')
-        plt.show()
-        self.axes.imshow(a_, cmap='gray')
+        self.img = self.img_obj.get_img_from_array(array=array)
+        self.axes.imshow(self.img)
         self.draw()
+
+    def build_hist(self):
+        plt.hist(self.img.ravel(), 255, density=True)
+        plt.show()
 
 
 if __name__ == '__main__':
