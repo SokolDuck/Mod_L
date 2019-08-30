@@ -129,8 +129,8 @@
    <widget class="QPushButton" name="btn">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>870</y>
+      <x>1490</x>
+      <y>880</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -249,6 +249,61 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>850</y>
+      <width>151</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>g = c * log( 1 + f)</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="log_a">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>890</y>
+      <width>160</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>890</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>c</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="log_a_label">
+    <property name="geometry">
+     <rect>
+      <x>1230</x>
+      <y>890</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
   </widget>

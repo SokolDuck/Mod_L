@@ -1,7 +1,5 @@
 import sys
 
-import numpy as np
-
 from PyQt5.QtWidgets import QApplication, QMainWindow, QSizePolicy
 from PyQt5 import uic
 
@@ -10,8 +8,8 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
 from cosii.LR1.constants import FILE_PATH
-from cosii.LR1.utils import get_img, ImageGenerator
-from src.LR2.utils import generate_random_sequence, build_histogram, build_plot
+from cosii.LR1.image_corrector import ImageCorrector
+from src.LR2.utils import build_histogram
 
 
 class App(QMainWindow):
@@ -23,6 +21,7 @@ class App(QMainWindow):
         self.width = 640
         self.height = 400
         self.hist = None
+        self.original = None
         self.plot = None
         self.init_ui()
 
@@ -41,10 +40,17 @@ class App(QMainWindow):
         self.A_slider.valueChanged.connect(self.gamma_handler)
         self.y_slider.valueChanged.connect(self.gamma_handler)
 
+        self.log_a.valueChanged.connect(self.logarithmic_correction)
+
         self.btn.clicked.connect(self.build_hist)
 
         self.show()
         self.linear_handler()
+
+    def logarithmic_correction(self):
+        value = self.log_a.value() / 100
+        self.log_a_label.setText(str(value))
+        self.hist.plot_log(value)
 
     def linear_handler(self):
         a_value = self.a_slider.value()
@@ -78,7 +84,7 @@ class PlotCanvas(FigureCanvas):
                                    QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
-        self.img_obj = ImageGenerator(file_path=FILE_PATH)
+        self.img_obj = ImageCorrector(file_path=FILE_PATH)
         self.img = self.img_obj.get_img()
 
         if image:
@@ -94,7 +100,10 @@ class PlotCanvas(FigureCanvas):
 
     def plot_gamma(self, A, y):
         array = self.img_obj.gamma_correction(A, y)
-        print(array)
+        self.plot(array)
+
+    def plot_log(self, c):
+        array = self.img_obj.logarithmic_correction(c)
         self.plot(array)
 
     def plot(self, array):
