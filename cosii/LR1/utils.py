@@ -42,6 +42,13 @@ class ImageGenerator:
         return kof_a * self.ravel + kof_b
         # return (a * self.ravel + b) % 256 / 255
 
+    def gamma_correction(self, A, y):
+        if self.ravel[0] > 1:
+            return A * ((self.ravel / 255) ** y)
+        else:
+            return A * (self.ravel ** y)
+
+
     def get_img_from_array(self, array: np.ndarray):
         if len(self.img.shape) == 3:
             img = array.reshape((self.img.shape[0], self.img.shape[1], self.img.shape[2]))

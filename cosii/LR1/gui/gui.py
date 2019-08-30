@@ -35,19 +35,30 @@ class App(QMainWindow):
         self.original.move(10, 0)
         self.hist.move(810, 0)
 
-        self.a_slider.valueChanged.connect(self.slider_handler)
-        self.b_slider.valueChanged.connect(self.slider_handler)
+        self.a_slider.valueChanged.connect(self.linear_handler)
+        self.b_slider.valueChanged.connect(self.linear_handler)
+
+        self.A_slider.valueChanged.connect(self.gamma_handler)
+        self.y_slider.valueChanged.connect(self.gamma_handler)
+
         self.btn.clicked.connect(self.build_hist)
 
         self.show()
-        self.slider_handler()
+        self.linear_handler()
 
-    def slider_handler(self):
+    def linear_handler(self):
         a_value = self.a_slider.value()
         b_value = self.b_slider.value()
         self.a_value.setText(str(a_value))
         self.b_value.setText(str(b_value))
-        self.hist.plot(a=a_value, b=b_value)
+        self.hist.plot_linear(a=a_value, b=b_value)
+
+    def gamma_handler(self):
+        a = self.A_slider.value() / 10
+        y = self.y_slider.value() / 10
+        self.A_value.setText(str(a))
+        self.y_value.setText(str(y))
+        self.hist.plot_gamma(A=a, y=y)
 
     def build_hist(self):
         self.original.build_hist()
@@ -77,8 +88,16 @@ class PlotCanvas(FigureCanvas):
         elif hist:
             build_histogram(self.img_obj.get_img_as_array(), 255, _plt=self.axes, show=False)
 
-    def plot(self, a=0, b=0):
+    def plot_linear(self, a=0, b=0):
         array = self.img_obj.linear_correction(a, b)
+        self.plot(array)
+
+    def plot_gamma(self, A, y):
+        array = self.img_obj.gamma_correction(A, y)
+        print(array)
+        self.plot(array)
+
+    def plot(self, array):
         self.axes.clear()
         self.img = self.img_obj.get_img_from_array(array=array)
         self.axes.imshow(self.img)

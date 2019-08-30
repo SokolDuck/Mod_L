@@ -9,7 +9,7 @@ while split_path[-1] != 'Mod_L':
 
 cat = False
 
-ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', 'screen.jpg' if not cat else 'city.jpg']
+ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', 'gamma.jpg' if not cat else 'city.jpg']
 
 split_path.extend(ABSOLUT_FILE_PATH)
 
