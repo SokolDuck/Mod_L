@@ -101,6 +101,23 @@ class ImageCorrector:
             img = np.where((img != 0) == (img != 255), r, img) / 255
         return img
 
+    def negative(self):
+        return 255 - self.ravel
+
+    def gray_scale(self):
+        img = []
+        for line in self.img:
+            l = []
+            for col in line:
+                l.append((0.11 * col[0] + 0.59 * col[1] + 0.3 * col[2]) / 255)
+            img.append(l)
+
+        return np.array(img)
+
+    def solarization(self, k=1):
+        k = 4 / self.x_max
+        return (k * self.ravel * (self.x_max - self.ravel)) / 255
+
     def get_img_from_array(self, array: np.ndarray):
         if len(self.img.shape) == 3:
             img = array.reshape((self.img.shape[0], self.img.shape[1], self.img.shape[2]))
