@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 import numpy as np
 
 from cosii.LR1.utils import get_img
@@ -80,7 +82,6 @@ class ImageCorrector:
         img = self.ravel
         if type == 'a':
             img = np.where(self.ravel > kwargs.get('border'), 255, 0)
-            print(img)
         elif type == 'b':
             img = np.where((kwargs.get('left') < self.ravel) == (self.ravel < kwargs.get('right')), 255, 0)
         elif type == 'c':
@@ -139,3 +140,75 @@ class ImageCorrector:
             raise Exception('not valid filters mask')
 
         return img
+
+    def linked_spaces(self, labels=None, recurs: bool = False):
+        if not labels:
+            labels = np.copy(self.img) * 0
+
+        label = 0
+        eq = {}
+
+        for x in range(self.img.shape[0]):
+            for y in range(self.img.shape[1]):
+                if recurs:
+                    self._fill(labels, x, y, label)
+                    label += 1
+                else:
+                    if self.img[x, y] == 0:
+                        if labels[x - 1, y] == 0 and labels[x, y - 1] == 0:
+                            label += 1
+                            labels[x, y] = label
+                        if labels[x - 1, y] != 0 and labels[x, y - 1] != 0 and labels[x - 1, y] == labels[x, y - 1]:
+                            labels[x, y] = labels[x - 1, y]
+                        elif labels[x - 1, y] != 0 and labels[x, y - 1] != 0:
+                            eq[labels[x - 1, y]] = labels[x, y - 1]
+                            labels[x, y] = labels[x - 1, y]
+                        elif labels[x - 1, y] != 0:
+                            labels[x, y] = labels[x - 1, y]
+                        elif labels[x, y - 1] != 0:
+                            labels[x, y] = labels[x, y - 1]
+
+        keys = list(eq.keys())
+        mark = 1
+        relationship = defaultdict(list)
+        k = keys[0]
+
+        while True:
+            v = eq.get(k)
+            if eq.get(v):
+                if k not in relationship[mark]:
+                    keys.remove(k)
+                    relationship[mark].append(k)
+
+                relationship[mark].append(v)
+                if v in keys:
+                    keys.remove(v)
+                if len(keys) == 0:
+                    break
+                k = v
+            else:
+                relationship[mark].append(v)
+                mark += 1
+                k = keys[0]
+
+        for l, r in relationship.items():
+            for key in r:
+                labels[labels == key] = l
+
+        if labels.max == mark - 1:
+            return labels
+        else:
+            labels[labels == labels.max] = mark
+            return labels
+
+    def _fill(self, labels, x, y, label):
+        if labels[x, y] == 0 and self.img[x, y] == 255:
+            labels[x, y] = label
+            if x > 0:
+                self._fill(labels, x - 1, y, label)
+            if x < self.img.shape[1] - 1:
+                self._fill(labels, x + 1, y, label)
+            if y > 0:
+                self._fill(labels, x, y - 1, label)
+            if y < self.img.shape[0] - 1:
+                self._fill(labels, x, y + 1, label)
