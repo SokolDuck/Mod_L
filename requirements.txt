@@ -5,3 +5,4 @@ numpy
 scipy
 matplotlib
 pillow
+pyqt5-stubs

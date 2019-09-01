@@ -124,3 +124,18 @@ class ImageCorrector:
         else:
             img = array.reshape((self.img.shape[0], self.img.shape[1]))
         return img
+
+    def use_filter(self, h: np.ndarray):
+        img = np.copy(self.img) / 255
+
+        if len(h.shape) == 3:
+            img = self.gray_scale()
+
+        if h.shape[0] == h.shape[1] and h.shape[0] == 3:
+            for row, line in enumerate(img[1: -1]):
+                for col, pixel in enumerate(line[1: -1]):
+                    img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum()
+        else:
+            raise Exception('not valid filters mask')
+
+        return img
