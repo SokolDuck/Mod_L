@@ -8,7 +8,7 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
 from cosii.LR1.constants import FILE_PATH
-from cosii.LR1.image_corrector import ImageCorrector
+from cosii.image_corrector import ImageCorrector
 from src.LR2.utils import build_histogram
 
 

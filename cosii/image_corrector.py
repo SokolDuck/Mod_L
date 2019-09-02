@@ -172,7 +172,7 @@ class ImageCorrector:
         mark = 1
         relationship = defaultdict(list)
         k = keys[0]
-
+        keys.remove(k)
         while True:
             v = eq.get(k)
             if eq.get(v):
@@ -196,10 +196,10 @@ class ImageCorrector:
             for key in r:
                 labels[labels == key] = l
 
-        if labels.max == mark - 1:
+        if labels.max == mark:
             return labels
         else:
-            labels[labels == labels.max()] = mark
+            labels[labels == labels.max()] = mark + 1
             return labels
 
     def _fill(self, labels, x, y, label):
@@ -213,3 +213,4 @@ class ImageCorrector:
                 self._fill(labels, x, y - 1, label)
             if y < self.img.shape[0] - 1:
                 self._fill(labels, x, y + 1, label)
+
