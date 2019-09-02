@@ -184,6 +184,7 @@ class ImageCorrector:
                 if v in keys:
                     keys.remove(v)
                 if len(keys) == 0:
+                    relationship[mark].append(eq.get(v))
                     break
                 k = v
             else:
@@ -198,7 +199,7 @@ class ImageCorrector:
         if labels.max == mark - 1:
             return labels
         else:
-            labels[labels == labels.max] = mark
+            labels[labels == labels.max()] = mark
             return labels
 
     def _fill(self, labels, x, y, label):

@@ -22,7 +22,7 @@ def main():
 
     bin_img_obj = ImageCorrector(img=bin_img)
     labels = bin_img_obj.linked_spaces()
-    labels *= 10
+    labels *= 50
     labels[labels == 0] = 255
     plt.imshow(labels, cmap='gray')
     plt.show()
