@@ -16,7 +16,7 @@ class ImageCorrector:
         else:
             self.ravel = self.img.ravel()
 
-        if self.ravel[0] <= 1:
+        if max(self.ravel) <= 1:
             self.ravel *= 255
 
         self.x_min, self.x_max = min(self.ravel), max(self.ravel)
@@ -154,7 +154,7 @@ class ImageCorrector:
                     self._fill(labels, x, y, label)
                     label += 1
                 else:
-                    if self.img[x, y] == 0:
+                    if self.img[x, y] != 0:
                         if labels[x - 1, y] == 0 and labels[x, y - 1] == 0:
                             label += 1
                             labels[x, y] = label
@@ -173,14 +173,18 @@ class ImageCorrector:
         relationship = defaultdict(list)
         k = keys[0]
         keys.remove(k)
+
         while True:
             v = eq.get(k)
+
             if eq.get(v):
                 if k not in relationship[mark]:
-                    keys.remove(k)
+                    if k in keys:
+                        keys.remove(k)
                     relationship[mark].append(k)
 
                 relationship[mark].append(v)
+
                 if v in keys:
                     keys.remove(v)
                 if len(keys) == 0:
@@ -189,6 +193,8 @@ class ImageCorrector:
                 k = v
             else:
                 relationship[mark].append(v)
+                if k in keys:
+                    keys.remove(k)
                 mark += 1
                 k = keys[0]
 

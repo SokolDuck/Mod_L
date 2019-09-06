@@ -51,3 +51,25 @@ def get_border(labels: np.ndarray, label_name):
                 border.append((x, y))
 
     return border
+
+
+def compactnost(border: list, area: int):
+    return (len(border) ** 2) / area
+
+
+def m(labels, label_name, i, j):
+    m_x, m_y = m_center(labels, label_name)
+
+    m = 0
+
+    for x in labels.shape[0]:
+        for y in labels.shape[1]:
+            if labels[x, y] == label_name:
+                m += ((x - m_x) ** i) * ((y - m_y) ** j)
+
+    return m
+
+
+def elongation(labels, label_name):
+    return (m(labels, label_name, 2, 0) + m(labels, label_name, 0, 2) + np.sqrt((m(labels, label_name, 2, 0) -  m(labels, label_name, 0, 2))** 2 + 4 * m(labels, label_name, 1, 1) ** 2)) / \
+           (m(labels, label_name, 2, 0) + m(labels, label_name, 0, 2) - np.sqrt((m(labels, label_name, 2, 0) - m(labels, label_name, 0, 2)) ** 2 + 4 * m(labels, label_name, 1, 1) ** 2))

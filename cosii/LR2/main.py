@@ -13,10 +13,10 @@ def main():
     gray_scale = img_obj.gray_scale()
 
     img_obj = ImageCorrector(img=gray_scale)
-    # plt.imshow(img_obj.get_img(), cmap='gray')
-    # plt.show()
+    plt.imshow(img_obj.get_img(), cmap='gray')
+    plt.show()
 
-    bin_array = img_obj.image_preparation('a', border=20)
+    bin_array = img_obj.image_preparation('a', border=200)
     bin_img = img_obj.get_img_from_array(bin_array)
     plt.imshow(bin_img, cmap='gray')
     plt.show()
@@ -37,22 +37,20 @@ def main():
     border_3 = get_border(labels, 3)
     border_4 = get_border(labels, 4)
 
-    labels *= 50
-    labels[labels == 0] = 255
-    plt.imshow(labels, cmap='gray')
+    plt.imshow(bin_img_obj.get_img(), cmap='gray')
     plt.scatter(center1[0], center1[1], marker='o', color='blue')
     plt.text(center1[0], center1[1], f'V(1) = {v1}', c='blue')
     plt.scatter(center2[0], center2[1], marker='o', color='red')
     plt.text(center2[0], center2[1], f'V(2) = {v2}', c='red')
     plt.scatter(center3[0], center3[1], marker='o', color='green')
     plt.text(center3[0], center3[1], f'V(3) = {v3}', c='green')
-    plt.scatter(center4[0], center4[1], marker='o', color='black')
-    plt.text(center4[0], center4[1], f'V(4) = {v4}', c='black')
+    plt.scatter(center4[0], center4[1], marker='o', color='orange')
+    plt.text(center4[0], center4[1], f'V(4) = {v4}', c='orange')
 
     plt.scatter(list(map(lambda x: x[0], border_1)), list(map(lambda x: x[1], border_1)), s=1, color='blue')
     plt.scatter(list(map(lambda x: x[0], border_2)), list(map(lambda x: x[1], border_2)), s=1, color='red')
     plt.scatter(list(map(lambda x: x[0], border_3)), list(map(lambda x: x[1], border_3)), s=1, color='green')
-    plt.scatter(list(map(lambda x: x[0], border_4)), list(map(lambda x: x[1], border_4)), s=1, color='black')
+    plt.scatter(list(map(lambda x: x[0], border_4)), list(map(lambda x: x[1], border_4)), s=1, color='orange')
     plt.show()
 
 
