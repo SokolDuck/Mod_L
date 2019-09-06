@@ -1,6 +1,6 @@
 import socket
 
-from spolks.LR1_TCP.constants import CONNECTION_DATA
+from constants import CONNECTION_DATA
 
 
 if __name__ == '__main__':
