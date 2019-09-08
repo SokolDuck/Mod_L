@@ -7,10 +7,10 @@ from cosii.LR1.constants import FILE_PATH
 
 if __name__ == '__main__':
     img = ImageCorrector(file_path=FILE_PATH)
-    # plt.hist(img.ravel, 255)
-    # plt.show()
-    # plt.imshow(img.get_img())
-    # plt.show()
+    plt.hist(img.ravel, 255)
+    plt.show()
+    plt.imshow(img.get_img())
+    plt.show()
 
     # array = img.image_preparation('a', border=100)
     # array = img.image_preparation('b', left=50, right=150)

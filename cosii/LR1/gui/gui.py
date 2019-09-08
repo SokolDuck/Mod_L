@@ -67,8 +67,10 @@ class App(QMainWindow):
         self.hist.plot_gamma(A=a, y=y)
 
     def build_hist(self):
-        self.original.build_hist()
-        self.hist.build_hist()
+        a_value = self.a_slider.value()
+        b_value = self.b_slider.value()
+        self.original.build_hist(a_value, b_value)
+        # self.hist.build_hist()
 
 
 class PlotCanvas(FigureCanvas):
@@ -85,8 +87,10 @@ class PlotCanvas(FigureCanvas):
         FigureCanvas.updateGeometry(self)
 
         self.img_obj = ImageCorrector(file_path=FILE_PATH)
+        # temp = self.img_obj.gray_scale()
+        # self.img_obj = ImageCorrector(img=temp)
         self.img = self.img_obj.get_img()
-
+        self.last = None
         if image:
             self.axes.imshow(self.img_obj.get_img(), cmap='gray')
             # plt.imshow(self.img_obj.get_img(), cmap='gray')
@@ -109,11 +113,14 @@ class PlotCanvas(FigureCanvas):
     def plot(self, array):
         self.axes.clear()
         self.img = self.img_obj.get_img_from_array(array=array)
-        self.axes.imshow(self.img)
+        self.axes.imshow(self.img, cmap='gray')
         self.draw()
+        self.last = array
 
-    def build_hist(self):
+    def build_hist(self, a, b):
         plt.hist(self.img.ravel(), 255, density=True)
+        plt.show()
+        plt.hist(self.img_obj.linear_correction(a, b), 255, density=True)
         plt.show()
 
 
