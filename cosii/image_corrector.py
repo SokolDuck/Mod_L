@@ -135,7 +135,11 @@ class ImageCorrector:
         if h.shape[0] == h.shape[1] and h.shape[0] == 3:
             for row, line in enumerate(img[1: -1]):
                 for col, pixel in enumerate(line[1: -1]):
-                    img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum()
+                    if len(img.shape) == 3:
+                        img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum() / 3
+                    else:
+                        img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum()
+
         else:
             raise Exception('not valid filters mask')
 

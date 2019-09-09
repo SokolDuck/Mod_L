@@ -3,13 +3,15 @@ import numpy as np
 from cosii.image_corrector import ImageCorrector
 import matplotlib.pyplot as plt
 
-from cosii.LR1.constants import FILE_PATH
+from cosii.LR1.constants import reload_path
 
 if __name__ == '__main__':
-    img = ImageCorrector(file_path=FILE_PATH)
-    plt.hist(img.ravel, 255)
+
+    img = ImageCorrector(file_path=reload_path('city.jpg'))
+    # img = ImageCorrector(file_path=reload_path('cat.jpg'))
+    plt.imshow(img.get_img(), cmap='gray')
     plt.show()
-    plt.imshow(img.get_img())
+    plt.hist(img.ravel, 255)
     plt.show()
 
     # array = img.image_preparation('a', border=100)
@@ -41,31 +43,35 @@ if __name__ == '__main__':
         [1, 2, 1],
     ]) / 16
 
-    # высокочастотные
+    # # высокочастотные
     h1_1 = np.array([
         [-1, -1, -1],
         [-1, 9, -1],
         [-1, -1, -1],
-    ])
+    ]) / 1
     h2_2 = np.array([
         [0, -1, 0],
         [-1, 5, -1],
         [0, -1, 0],
-    ])
-    h3_3 = np.array([
-        [1, -2, 1],
-        [-2, 5, -2],
-        [1, -2, 1],
-    ])
+    ]) / 1
+    # h3_3 = np.array([
+    #     [1, -2, 1],
+    #     [-2, 5, -2],
+    #     [1, -2, 1],
+    # ])
 
-    a = img.use_filter(h1_1)
-    plt.imshow(a, cmap='gray')
-    plt.show()
+    # a = img.use_filter(h1)
+    # plt.imshow(a, cmap='gray')
+    # plt.show()
     a = img.use_filter(h2_2)
     plt.imshow(a, cmap='gray')
     plt.show()
-    a = img.use_filter(h3_3)
+    plt.hist(a.ravel() * 255, 255)
+    plt.show()
+
+    a = img.use_filter(h3)
     plt.imshow(a, cmap='gray')
     plt.show()
-    # plt.hist(array.ravel(), 255)
-    # plt.show()
+
+    plt.hist(a.ravel() * 255, 255)
+    plt.show()

@@ -1,16 +1,20 @@
 import os
 
-cur_dir = os.getcwd()
 
-split_path = cur_dir.split(os.path.sep)
+def reload_path(_img, cat=True):
+    cur_dir = os.getcwd()
 
-while split_path[-1] != 'Mod_L':
-    split_path = split_path[:-1]
+    split_path = cur_dir.split(os.path.sep)
 
-cat = True
+    while split_path[-1] != 'Mod_L':
+        split_path = split_path[:-1]
 
-ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', 'screen.jpg' if cat else 'student.jpg']
+    ABSOLUT_FILE_PATH = ['cosii', 'LR1', 'data', _img if cat else 'student.jpg']
+    split_path.extend(ABSOLUT_FILE_PATH)
 
-split_path.extend(ABSOLUT_FILE_PATH)
+    FILE_PATH = os.path.sep.join(split_path)
 
-FILE_PATH = os.path.sep.join(split_path)
+    return FILE_PATH
+
+
+FILE_PATH = reload_path('screen.jpg')

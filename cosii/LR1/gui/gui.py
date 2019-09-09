@@ -120,7 +120,7 @@ class PlotCanvas(FigureCanvas):
     def build_hist(self, a, b):
         plt.hist(self.img.ravel(), 255, density=True)
         plt.show()
-        plt.hist(self.img_obj.linear_correction(a, b), 255, density=True)
+        plt.hist(self.img_obj.linear_correction(a, b) * 255, 255, density=True)
         plt.show()
 
 
