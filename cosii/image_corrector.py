@@ -128,6 +128,8 @@ class ImageCorrector:
 
     def use_filter(self, h: np.ndarray):
         img = np.copy(self.img) / 255
+        res = np.copy(img)
+        res[1: -1, 1: -1] *= 0
 
         if len(h.shape) == 3:
             img = self.gray_scale()
@@ -136,14 +138,14 @@ class ImageCorrector:
             for row, line in enumerate(img[1: -1]):
                 for col, pixel in enumerate(line[1: -1]):
                     if len(img.shape) == 3:
-                        img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum() / 3
+                        res[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum() / 3
                     else:
-                        img[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum()
+                        res[row + 1, col + 1] = (img[row: row + 3, col: col + 3] * h).sum()
 
         else:
             raise Exception('not valid filters mask')
 
-        return img
+        return res
 
     def linked_spaces(self, labels=None, recurs: bool = False):
         if not labels:

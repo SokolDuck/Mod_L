@@ -61,5 +61,3 @@ check_2 = obj.get_next_random()
 
 print(f'fix_1 ({fix_1}) == check_1 ({check_1}) {fix_1 == check_1}')
 print(f'fix_2 ({fix_2}) == check_2 ({check_2}) {fix_2 == check_2}')
-
-
