@@ -47,8 +47,8 @@ plt.plot(range(len(random_num)), random_num, 'bo')
 plt.show()
 
 obj = LemerRandomGenerator(X0, A, M)
-p = obj.calculate_period()
-print(f'Period P = {p}')
+p, aper = obj.calculate_period()
+print(f'Period P = {p}, {aper}')
 
 fix_1 = obj.get_next_random()
 fix_2 = obj.get_next_random()
