@@ -1,12 +1,14 @@
 import numpy as np
 
+from sklearn.cluster import KMeans
+
 
 def area(labels: np.ndarray, label_name):
     s = np.where(labels == label_name, 1, 0)
     return s.sum()
 
 
-def m_center(labels: np.ndarray, label_name):
+def m_center(labels: np.ndarray, label_name, get_area = False):
     A = area(labels, label_name)
     x_res = 0
     y_res = 0
@@ -23,8 +25,10 @@ def m_center(labels: np.ndarray, label_name):
 
     x_res /= A
     y_res /= A
-
-    return y_res, x_res
+    if get_area:
+        return y_res, x_res, A
+    else:
+        return y_res, x_res
 
 
 def is_inner_border(labels: np.ndarray, x, y, label_name) -> bool:
@@ -58,18 +62,37 @@ def compactnost(border: list, area: int):
 
 
 def m(labels, label_name, i, j):
-    m_x, m_y = m_center(labels, label_name)
+    m_y, m_x, a = m_center(labels, label_name, get_area=True)
 
     m = 0
 
-    for x in labels.shape[0]:
-        for y in labels.shape[1]:
+    for x in range(labels.shape[0]):
+        for y in range(labels.shape[1]):
             if labels[x, y] == label_name:
-                m += ((x - m_x) ** i) * ((y - m_y) ** j)
+                temp = ((x - m_x) ** i) * ((y - m_y) ** j)
+                m += temp
 
     return m
 
 
 def elongation(labels, label_name):
-    return (m(labels, label_name, 2, 0) + m(labels, label_name, 0, 2) + np.sqrt((m(labels, label_name, 2, 0) -  m(labels, label_name, 0, 2))** 2 + 4 * m(labels, label_name, 1, 1) ** 2)) / \
-           (m(labels, label_name, 2, 0) + m(labels, label_name, 0, 2) - np.sqrt((m(labels, label_name, 2, 0) - m(labels, label_name, 0, 2)) ** 2 + 4 * m(labels, label_name, 1, 1) ** 2))
+    m_2_0 = m(labels, label_name, 2, 0)
+    m_0_2 = m(labels, label_name, 0, 2)
+    m_1_1 = m(labels, label_name, 1, 1)
+    sq = np.sqrt((m_2_0 - m_0_2) ** 2 + 4 * m_1_1 ** 2)
+
+    return (m_2_0 + m_0_2 + sq) / \
+           (m_2_0 + m_0_2 - sq)
+
+
+def k_mean(vectors):
+    if not isinstance(vectors, np.ndarray):
+        vectors = np.array(vectors)
+    km = KMeans(n_clusters=2, init='k-means++', max_iter=100, n_init=1,
+                verbose=False)
+    km.fit(vectors)
+    return km
+
+
+def get_class(vector, km):
+    return int(km.predict(np.array(vector))[0])

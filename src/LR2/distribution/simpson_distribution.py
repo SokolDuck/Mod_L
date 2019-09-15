@@ -1,10 +1,5 @@
-import numpy as np
-
-from src.LR2.constants import A, B
 from src.LR2.distribution.uniform_distribution import UniformDistribution
 from src.LR2.utils import Generator, run
-
-from scipy.integrate import simps
 
 
 class SimpsonDistribution(Generator):

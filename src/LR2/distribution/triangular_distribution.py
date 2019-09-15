@@ -20,9 +20,9 @@ class TriangularDistribution(Generator):
         left_right_triangular = kwargs.get('left_right_triangular', 'l')
 
         if self.is_left(left_right_triangular):
-            return [min(sequence), max(sequence)], [2 / (self.b -self.a), 0]
+            return [min(sequence), max(sequence)], [2 / (self.b - self.a), 0]
         else:
-            return [min(sequence), max(sequence)], [0, 2 / (self.b -self.a)]
+            return [min(sequence), max(sequence)], [0, 2 / (self.b - self.a)]
 
 
 if __name__ == '__main__':

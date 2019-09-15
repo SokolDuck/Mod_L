@@ -189,7 +189,10 @@ class ImageCorrector:
                         keys.remove(k)
                     relationship[mark].append(k)
 
-                relationship[mark].append(v)
+                if k in relationship[mark] and v in relationship[mark]:
+                    v = keys[0]
+                else:
+                    relationship[mark].append(v)
 
                 if v in keys:
                     keys.remove(v)
@@ -202,17 +205,20 @@ class ImageCorrector:
                 if k in keys:
                     keys.remove(k)
                 mark += 1
-                k = keys[0]
+                if len(keys) == 0:
+                    break
+                else:
+                    k = keys[0]
 
         for l, r in relationship.items():
             for key in r:
                 labels[labels == key] = l
 
-        if labels.max == mark:
-            return labels
-        else:
+        while labels.max() != mark:
             labels[labels == labels.max()] = mark + 1
-            return labels
+            mark += 1
+
+        return labels
 
     def _fill(self, labels, x, y, label):
         if labels[x, y] == 0 and self.img[x, y] == 255:

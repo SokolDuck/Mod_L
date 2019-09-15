@@ -6,3 +6,4 @@ scipy
 matplotlib
 pillow
 pyqt5-stubs
+scikit-learn

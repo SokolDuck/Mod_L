@@ -1,4 +1,4 @@
-from cosii.LR2.utils import m_center, area, get_border
+from cosii.LR2.utils import m_center, area, get_border, elongation, k_mean, get_class
 from cosii.image_corrector import ImageCorrector
 from cosii.LR2.constants import FILE_PATH
 
@@ -23,34 +23,45 @@ def main():
 
     bin_img_obj = ImageCorrector(img=bin_img)
     labels = bin_img_obj.linked_spaces()
-    center1 = m_center(labels, 1)
-    v1 = area(labels, 1)
-    center2 = m_center(labels, 2)
-    v2 = area(labels, 2)
-    center3 = m_center(labels, 3)
-    v3 = area(labels, 3)
-    center4 = m_center(labels, 4)
-    v4 = area(labels, 4)
 
-    border_1 = get_border(labels, 1)
-    border_2 = get_border(labels, 2)
-    border_3 = get_border(labels, 3)
-    border_4 = get_border(labels, 4)
+    objects = []
+    centers = []
+    borders = []
+    elevations = []
+    for i in range(labels.max()):
+        v = area(labels, i + 1)
+        if v > 100:
+            centers.append(m_center(labels, i + 1))
+            objects.append(v)
+            borders.append(get_border(labels, i + 1))
+            elevations.append(elongation(labels, i + 1))
 
     plt.imshow(bin_img_obj.get_img(), cmap='gray')
-    plt.scatter(center1[0], center1[1], marker='o', color='blue')
-    plt.text(center1[0], center1[1], f'V(1) = {v1}', c='blue')
-    plt.scatter(center2[0], center2[1], marker='o', color='red')
-    plt.text(center2[0], center2[1], f'V(2) = {v2}', c='red')
-    plt.scatter(center3[0], center3[1], marker='o', color='green')
-    plt.text(center3[0], center3[1], f'V(3) = {v3}', c='green')
-    plt.scatter(center4[0], center4[1], marker='o', color='orange')
-    plt.text(center4[0], center4[1], f'V(4) = {v4}', c='orange')
 
-    plt.scatter(list(map(lambda x: x[0], border_1)), list(map(lambda x: x[1], border_1)), s=1, color='blue')
-    plt.scatter(list(map(lambda x: x[0], border_2)), list(map(lambda x: x[1], border_2)), s=1, color='red')
-    plt.scatter(list(map(lambda x: x[0], border_3)), list(map(lambda x: x[1], border_3)), s=1, color='green')
-    plt.scatter(list(map(lambda x: x[0], border_4)), list(map(lambda x: x[1], border_4)), s=1, color='orange')
+    for num, center in enumerate(centers):
+        if objects[num] > 100:
+            plt.scatter(center[0], center[1], marker='o', color='blue')
+            plt.text(center[0], center[1], f'V({num}) = {objects[num]}', c='blue')
+            plt.text(center[0], center[1] + 20, f'E({num}) = {int(elevations[num])}', c='blue')
+
+    for num, border in enumerate(borders):
+        if objects[num] > 100:
+            plt.scatter(list(map(lambda x: x[0], border)), list(map(lambda x: x[1], border)), s=1, color='red')
+
+    plt.show()
+
+    vectors = list(zip(objects, elevations))
+    km = k_mean(vectors)
+
+    plt.imshow(bin_img_obj.get_img(), cmap='gray')
+    classes = km.predict(vectors)
+
+    for num in range(len(objects)):
+        color = 'blue' if classes[num] == 0 else 'red'
+        center = centers[num]
+        plt.text(center[0], center[1], f'V({num}) = {objects[num]}', c=color)
+        plt.scatter(list(map(lambda x: x[0], borders[num])), list(map(lambda x: x[1], borders[num])), s=1, color=color)
+
     plt.show()
 
 
