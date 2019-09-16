@@ -1,25 +1,49 @@
-from cosii.LR2.utils import m_center, area, get_border, elongation, k_mean, get_class
+import numpy as np
+
+from cosii.LR2.utils import m_center, area, get_border, elongation, k_mean, get_class, blur
 from cosii.image_corrector import ImageCorrector
 from cosii.LR2.constants import FILE_PATH
 
 import matplotlib.pyplot as plt
 
+COLORS = ['red', 'green', 'blue', 'orange', 'yellow']
+
 
 def main():
     img_obj = ImageCorrector(file_path=FILE_PATH)
-    plt.imshow(img_obj.get_img(), cmap='gray')
-    plt.show()
+
+    h1 = np.array([
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1],
+    ]) / 9
+
+    # plt.imshow(img_obj.get_img(), cmap='gray')
+    # plt.show()
 
     gray_scale = img_obj.gray_scale()
 
     img_obj = ImageCorrector(img=gray_scale)
+    img_obj.img = img_obj.use_filter(h1) * 255
+    img_obj.img = img_obj.use_filter(h1) * 255
+    img_obj.img = img_obj.get_img_from_array(img_obj.gamma_correction(1, 3))
+
     plt.imshow(img_obj.get_img(), cmap='gray')
     plt.show()
 
-    bin_array = img_obj.image_preparation('a', border=200)
+    G = 130
+    if img_obj.get_img().max() < 1:
+        bin_array = img_obj.image_preparation('a', border=0.75)
+    else:
+        bin_array = img_obj.image_preparation('a', border=G)
     bin_img = img_obj.get_img_from_array(bin_array)
     plt.imshow(bin_img, cmap='gray')
     plt.show()
+
+    # bin_img = blur(bin_img)
+    #
+    # plt.imshow(bin_img, cmap='gray')
+    # plt.show()
 
     bin_img_obj = ImageCorrector(img=bin_img)
     labels = bin_img_obj.linked_spaces()
@@ -51,13 +75,13 @@ def main():
     plt.show()
 
     vectors = list(zip(objects, elevations))
-    km = k_mean(vectors)
+    km = k_mean(vectors, 2)
 
     plt.imshow(bin_img_obj.get_img(), cmap='gray')
     classes = km.predict(vectors)
 
     for num in range(len(objects)):
-        color = 'blue' if classes[num] == 0 else 'red'
+        color = COLORS[classes[num]]
         center = centers[num]
         plt.text(center[0], center[1], f'V({num}) = {objects[num]}', c=color)
         plt.scatter(list(map(lambda x: x[0], borders[num])), list(map(lambda x: x[1], borders[num])), s=1, color=color)

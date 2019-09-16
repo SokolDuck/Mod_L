@@ -1,3 +1,4 @@
+import cv2
 import numpy as np
 
 from sklearn.cluster import KMeans
@@ -35,12 +36,12 @@ def is_inner_border(labels: np.ndarray, x, y, label_name) -> bool:
     if labels[x, y] == label_name:
         return (x != 0 and y != 0 and labels[x - 1, y - 1] != label_name) or \
                (x != 0 and labels[x - 1, y] != label_name) or \
-               (x != 0 and y != labels.shape[1] and labels[x - 1, y + 1] != label_name) or \
+               (x != 0 and y != labels.shape[1] - 1 and labels[x - 1, y + 1] != label_name) or \
                (y != 0 and labels[x, y - 1] != label_name) or \
-               (y != labels.shape[1] and labels[x, y + 1] != label_name) or \
-               (x != labels.shape[0] and y != 0 and labels[x + 1, y - 1] != label_name) or \
-               (x != labels.shape[0] and labels[x + 1, y] != label_name) or \
-               (x != labels.shape[0] and y != labels.shape[1] and labels[x + 1, y + 1] != label_name)
+               (y != labels.shape[1] - 1 and labels[x, y + 1] != label_name) or \
+               (x != labels.shape[0] - 1 and y != 0 and labels[x + 1, y - 1] != label_name) or \
+               (x != labels.shape[0] - 1 and labels[x + 1, y] != label_name) or \
+               (x != labels.shape[0] - 1 and y != labels.shape[1] - 1 and labels[x + 1, y + 1] != label_name)
 
     else:
         return False
@@ -85,10 +86,10 @@ def elongation(labels, label_name):
            (m_2_0 + m_0_2 - sq)
 
 
-def k_mean(vectors):
+def k_mean(vectors, n_clusters=2):
     if not isinstance(vectors, np.ndarray):
         vectors = np.array(vectors)
-    km = KMeans(n_clusters=2, init='k-means++', max_iter=100, n_init=1,
+    km = KMeans(n_clusters=n_clusters, init='k-means++', max_iter=100, n_init=1,
                 verbose=False)
     km.fit(vectors)
     return km
@@ -96,3 +97,10 @@ def k_mean(vectors):
 
 def get_class(vector, km):
     return int(km.predict(np.array(vector))[0])
+
+
+def blur(img: np.ndarray):
+
+    blur = cv2.GaussianBlur(img, (5, 5), 0)
+
+    return img

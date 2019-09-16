@@ -1,7 +1,7 @@
 import os
 
 
-def reload_path(_img, cat=True):
+def reload_path(_img='gamma.jpg', cat=True):
     cur_dir = os.getcwd()
 
     split_path = cur_dir.split(os.path.sep)
@@ -17,4 +17,4 @@ def reload_path(_img, cat=True):
     return FILE_PATH
 
 
-FILE_PATH = reload_path('screen.jpg')
+FILE_PATH = reload_path('gamma.jpg')
