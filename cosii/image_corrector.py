@@ -32,7 +32,12 @@ class ImageCorrector:
         for item in self.ravel:
             yield item
 
+    def update(self):
+        self.ravel = self.img.ravel()
+        self.x_min, self.x_max = min(self.ravel), max(self.ravel)
+
     def linear_correction(self, y_min, y_max):
+        self.update()
         kof_a = (y_max - y_min) / (self.x_max - self.x_min)
         kof_b = y_max - kof_a * self.x_max
 

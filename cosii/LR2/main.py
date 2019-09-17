@@ -2,15 +2,20 @@ import numpy as np
 
 from cosii.LR2.utils import m_center, area, get_border, elongation, k_mean, get_class, blur
 from cosii.image_corrector import ImageCorrector
-from cosii.LR2.constants import FILE_PATH
+from cosii.LR2.constants import FILE_PATH, get_file_path, files_list
 
 import matplotlib.pyplot as plt
 
 COLORS = ['red', 'green', 'blue', 'orange', 'yellow']
 
 
-def main():
-    img_obj = ImageCorrector(file_path=FILE_PATH)
+def main(file_name=None):
+    if not file_name:
+        img_obj = ImageCorrector(file_path=FILE_PATH)
+        from cosii.LR2.constants import G, k_n
+    else:
+        path, G, k_n = get_file_path(file_name)
+        img_obj = ImageCorrector(file_path=path)
 
     h1 = np.array([
         [1, 1, 1],
@@ -18,8 +23,8 @@ def main():
         [1, 1, 1],
     ]) / 9
 
-    # plt.imshow(img_obj.get_img(), cmap='gray')
-    # plt.show()
+    plt.imshow(img_obj.get_img(), cmap='gray')
+    plt.show()
 
     gray_scale = img_obj.gray_scale()
 
@@ -31,11 +36,7 @@ def main():
     plt.imshow(img_obj.get_img(), cmap='gray')
     plt.show()
 
-    G = 130
-    if img_obj.get_img().max() < 1:
-        bin_array = img_obj.image_preparation('a', border=0.75)
-    else:
-        bin_array = img_obj.image_preparation('a', border=G)
+    bin_array = img_obj.image_preparation('a', border=G)
     bin_img = img_obj.get_img_from_array(bin_array)
     plt.imshow(bin_img, cmap='gray')
     plt.show()
@@ -44,7 +45,6 @@ def main():
     #
     # plt.imshow(bin_img, cmap='gray')
     # plt.show()
-
     bin_img_obj = ImageCorrector(img=bin_img)
     labels = bin_img_obj.linked_spaces()
 
@@ -75,7 +75,7 @@ def main():
     plt.show()
 
     vectors = list(zip(objects, elevations))
-    km = k_mean(vectors, 2)
+    km = k_mean(vectors, k_n)
 
     plt.imshow(bin_img_obj.get_img(), cmap='gray')
     classes = km.predict(vectors)
@@ -90,4 +90,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    for file_name in files_list:
+        main(file_name)
