@@ -90,5 +90,5 @@ def main(file_name=None):
 
 
 if __name__ == '__main__':
-    for file_name in files_list:
-        main(file_name)
+    # for file_name in files_list:
+    main('3.jpg')
