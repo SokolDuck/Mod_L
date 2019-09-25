@@ -1,0 +1,33 @@
+2019-09-22 20:45:45.139760: server created
+2019-09-22 20:45:45.139760: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 20:45:45.140762: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 20:45:45.160762: server ip address: port = 10.0.75.1:8088
+2019-09-22 20:45:45.169761: create socket <socket.socket fd=632, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 20:45:45.170761: open socket for 1 clients
+2019-09-22 20:45:45.171760: server started
+2019-09-22 20:45:48.732761: new client connected ('127.0.0.1', 9723)
+2019-09-22 20:45:56.842760: client ('127.0.0.1', 9723) send commend b'download' with params [b'test.txt']
+2019-09-22 20:46:05.168763: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 20:46:05.169762: connection closed ('127.0.0.1', 9723)
+2019-09-22 20:46:05.247761: new client connected ('127.0.0.1', 9724)
+2019-09-22 20:52:16.406283: connection closed ('127.0.0.1', 9724)
+2019-09-22 20:55:20.263284: new client connected ('192.168.1.137', 54132)
+2019-09-22 20:55:27.852284: client ('192.168.1.137', 54132) send commend b'echo' with params [b'hello']
+2019-09-22 20:55:27.852284: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 20:55:27.853283: connection closed ('192.168.1.137', 54132)
+2019-09-22 20:55:27.862284: new client connected ('192.168.1.137', 54133)
+2019-09-22 20:55:44.110298: client ('192.168.1.137', 54133) send commend b'download' with params [b'test.txt']
+2019-09-22 20:55:44.124284: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:55:44.124284: connection closed ('192.168.1.137', 54133)
+2019-09-22 20:55:44.187282: new client connected ('192.168.1.137', 54135)
+2019-09-22 20:56:05.711296: connection closed ('192.168.1.137', 54135)
+2019-09-22 20:56:11.134283: new client connected ('192.168.1.137', 54137)
+2019-09-22 20:56:21.011285: client ('192.168.1.137', 54137) send commend b'download' with params [b'test.txt']
+2019-09-22 20:56:21.027283: [WinError 10053] An established connection was aborted by the software in your host machine
+2019-09-22 20:56:21.028282: connection closed ('192.168.1.137', 54137)
+2019-09-22 20:56:21.090281: new client connected ('192.168.1.137', 54138)
+2019-09-22 20:57:00.557285: connection closed ('192.168.1.137', 54138)
+2019-09-22 20:57:29.266284: new client connected ('192.168.1.137', 54139)
+2019-09-22 20:57:31.517282: client ('192.168.1.137', 54139) send commend b'kill' with params []
+2019-09-22 20:57:31.517282: socket closed
+2019-09-22 20:57:31.518284: server stopped

@@ -1,0 +1,21 @@
+2019-09-15 17:51:53.780511: server created
+2019-09-15 17:51:53.780511: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-15 17:51:53.781475: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-15 17:51:53.805476: server ip address: port = 10.0.75.1:8088
+2019-09-15 17:51:53.816481: create socket <socket.socket fd=556, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-15 17:51:53.817476: open socket for 1 clients
+2019-09-15 17:51:53.817476: server started
+2019-09-15 17:52:01.163458: new client connected ('127.0.0.1', 1943)
+2019-09-15 17:52:31.751970: client ('127.0.0.1', 1943) send commend b'upload' with params [b'test2.txt', b'Lorem', b'ipsum', b'dolor', b'sit', b'amet,', b'consectetur', b'adipiscing', b'elit,', b'sed', b'do', b'eiusmod', b'tempor', b'incididunt', b'ut', b'labore', b'et', b'dolore', b'magna', b'aliqua.', b'Tempor', b'orci', b'dapibus', b'ultrices', b'in', b'iaculis.', b'Sagittis', b'aliquam', b'malesuada', b'bibendum', b'arcu', b'vitae.', b'Mus', b'mauris', b'vitae', b'ultricies', b'leo', b'integer.', b'Nec', b'sagittis', b'aliquam', b'malesuada', b'bibendum.', b'Pretium', b'viverra', b'suspendisse', b'potenti', b'nullam', b'ac', b'tortor', b'vitae', b'purus.', b'Ac', b'orci', b'phasellus', b'egestas', b'tellus', b'rutrum', b'tellus', b'pellentesque', b'eu.', b'Suspendisse', b'in', b'est', b'ante', b'in', b'nibh.', b'In', b'ornare', b'quam', b'viverra', b'orci', b'sagittis', b'eu', b'volutpat', b'odio.', b'Tincidunt', b'id', b'aliquet', b'risus', b'feugiat', b'in', b'ante', b'metus', b'dictum', b'at.', b'Placerat', b'in', b'egestas', b'erat', b'imperdiet', b'sed', b'euismod.', b'Nunc', b'scelerisque', b'viverra', b'mauris', b'in', b'aliquam', b'sem', b'fringilla', b'ut.', b'Ut', b'faucibus', b'pulvinar', b'elementum', b'integer', b'enim', b'neque', b'volutpat.', b'Viverra', b'accumsan', b'in', b'nisl', b'nisi', b'scelerisque', b'eu', b'ultrices', b'vitae', b'auctor.', b'Sagittis', b'nisl', b'rhoncus', b'mattis', b'rhoncus', b'urna.', b'Imperdiet', b'massa', b'tincidunt', b'nunc', b'pulvinar', b'sapien.', b'Enim', b'facilisis', b'gravida', b'neque', b'convallis.', b'Nunc', b'vel', b'risus', b'commodo', b'viverra', b'maecenas', b'accumsan', b'lacus.\n\nAliquam', b'se']
+2019-09-15 17:53:31.755648: timed out
+2019-09-15 17:53:31.756650: connection closed ('127.0.0.1', 1943)
+2019-09-15 17:54:37.381180: new client connected ('127.0.0.1', 10484)
+2019-09-15 17:54:50.138945: client ('127.0.0.1', 10484) send commend b'download' with params [b'test2.txt']
+2019-09-15 17:55:50.240941: timed out
+2019-09-15 17:55:50.243944: connection closed ('127.0.0.1', 10484)
+2019-09-15 17:56:18.599439: new client connected ('127.0.0.1', 10518)
+2019-09-15 17:56:38.117020: client ('127.0.0.1', 10518) send commend b'download' with params [b'test2.txt']
+2019-09-15 17:56:59.305108: connection closed ('127.0.0.1', 10518)
+2019-09-15 17:57:55.498742: 
+2019-09-15 17:57:55.499742: socket closed
+2019-09-15 17:57:55.499742: server stopped

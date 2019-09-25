@@ -1,0 +1,27 @@
+2019-09-22 21:40:18.965859: server created
+2019-09-22 21:40:18.966858: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 21:40:18.967857: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 21:40:18.989856: server ip address: port = 10.0.75.1:8088
+2019-09-22 21:40:18.998858: create socket <socket.socket fd=592, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 21:40:18.998858: open socket for 1 clients
+2019-09-22 21:40:18.999862: server started
+2019-09-22 21:40:28.023904: new client connected ('192.168.1.137', 54374)
+2019-09-22 21:40:34.477858: client ('192.168.1.137', 54374) send commend b'download' with params [b'test2.txt']
+2019-09-22 21:40:34.532857: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 21:40:34.532857: connection closed ('192.168.1.137', 54374)
+2019-09-22 21:40:34.534856: new client connected ('192.168.1.137', 54375)
+2019-09-22 21:40:49.044859: connection closed ('192.168.1.137', 54375)
+2019-09-22 21:40:54.370857: new client connected ('192.168.1.137', 54376)
+2019-09-22 21:40:58.757859: client ('192.168.1.137', 54376) send commend b'download' with params [b'test2.txt']
+2019-09-22 21:40:59.022857: [WinError 10053] An established connection was aborted by the software in your host machine
+2019-09-22 21:40:59.023856: connection closed ('192.168.1.137', 54376)
+2019-09-22 21:40:59.094859: new client connected ('192.168.1.137', 54377)
+2019-09-22 21:42:28.218913: connection closed ('192.168.1.137', 54377)
+2019-09-22 21:42:34.024908: new client connected ('192.168.1.137', 54378)
+2019-09-22 21:42:38.892915: client ('192.168.1.137', 54378) send commend b'download' with params [b'test2.txt']
+2019-09-22 21:42:39.169912: [WinError 10053] An established connection was aborted by the software in your host machine
+2019-09-22 21:42:39.170911: connection closed ('192.168.1.137', 54378)
+2019-09-22 21:42:39.402912: new client connected ('192.168.1.137', 54379)
+2019-09-22 21:42:52.550930: client ('192.168.1.137', 54379) send commend b'kill' with params []
+2019-09-22 21:42:52.550930: socket closed
+2019-09-22 21:42:52.551911: server stopped

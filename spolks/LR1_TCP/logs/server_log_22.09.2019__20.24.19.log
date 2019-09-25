@@ -1,0 +1,27 @@
+2019-09-22 20:24:19.029448: server created
+2019-09-22 20:24:19.029448: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 20:24:19.030448: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 20:24:19.053448: server ip address: port = 10.0.75.1:8088
+2019-09-22 20:24:19.065448: create socket <socket.socket fd=608, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 20:24:19.065448: open socket for 1 clients
+2019-09-22 20:24:19.066458: server started
+2019-09-22 20:24:24.466447: new client connected ('127.0.0.1', 9527)
+2019-09-22 20:24:35.121445: client ('127.0.0.1', 9527) send commend b'download' with params [b'test.txt']
+2019-09-22 20:24:36.037446: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 20:24:36.038446: connection closed ('127.0.0.1', 9527)
+2019-09-22 20:24:36.119446: new client connected ('127.0.0.1', 9528)
+2019-09-22 20:26:34.647028: connection closed ('127.0.0.1', 9528)
+2019-09-22 20:26:37.167020: new client connected ('127.0.0.1', 9536)
+2019-09-22 20:26:42.835019: client ('127.0.0.1', 9536) send commend b'download' with params [b'test.txt']
+2019-09-22 20:26:44.079023: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 20:26:44.080019: connection closed ('127.0.0.1', 9536)
+2019-09-22 20:26:44.170021: new client connected ('127.0.0.1', 9538)
+2019-09-22 20:35:34.477018: connection closed ('127.0.0.1', 9538)
+2019-09-22 20:35:36.487019: new client connected ('127.0.0.1', 9584)
+2019-09-22 20:35:41.676020: client ('127.0.0.1', 9584) send commend b'download' with params [b'test.txt']
+2019-09-22 20:35:41.683019: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:35:41.684023: connection closed ('127.0.0.1', 9584)
+2019-09-22 20:35:41.684023: new client connected ('127.0.0.1', 9585)
+2019-09-22 20:37:32.889020: client ('127.0.0.1', 9585) send commend b'kill' with params []
+2019-09-22 20:37:32.889020: socket closed
+2019-09-22 20:37:32.890018: server stopped

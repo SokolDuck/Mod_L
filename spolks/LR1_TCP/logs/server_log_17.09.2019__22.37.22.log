@@ -1,0 +1,25 @@
+2019-09-17 22:37:22.102926: server created
+2019-09-17 22:37:22.102926: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-17 22:37:22.103922: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-17 22:37:22.125924: server ip address: port = 10.0.75.1:8088
+2019-09-17 22:37:22.136924: create socket <socket.socket fd=636, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-17 22:37:22.137928: open socket for 1 clients
+2019-09-17 22:37:22.138931: server started
+2019-09-17 22:37:25.097924: new client connected ('127.0.0.1', 2094)
+2019-09-17 22:37:35.437552: client ('127.0.0.1', 2094) send commend b'download' with params [b'test.txt']
+2019-09-17 22:38:36.513793: timed out
+2019-09-17 22:38:36.514794: connection closed ('127.0.0.1', 2094)
+2019-09-17 22:41:05.554783: new client connected ('127.0.0.1', 2144)
+2019-09-17 22:41:07.906769: client ('127.0.0.1', 2144) send commend b'\xd0\xb5\xd1\x83\xd1\x8b\xd0\xb5' with params []
+2019-09-17 22:41:20.044766: client ('127.0.0.1', 2144) send commend b'echo' with params [b'test']
+2019-09-17 22:42:20.044886: timed out
+2019-09-17 22:42:20.045886: connection closed ('127.0.0.1', 2144)
+2019-09-17 22:43:36.870994: new client connected ('127.0.0.1', 1057)
+2019-09-17 22:43:48.084127: connection closed ('127.0.0.1', 1057)
+2019-09-17 22:43:53.108100: new client connected ('127.0.0.1', 1068)
+2019-09-17 22:44:53.110733: timed out
+2019-09-17 22:44:53.110733: connection closed ('127.0.0.1', 1068)
+2019-09-17 22:45:16.952728: new client connected ('127.0.0.1', 1085)
+2019-09-17 22:45:18.309728: client ('127.0.0.1', 1085) send commend b'kill' with params []
+2019-09-17 22:45:18.309728: socket closed
+2019-09-17 22:45:18.310731: server stopped

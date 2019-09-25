@@ -1,0 +1,53 @@
+2019-09-22 20:37:35.891027: server created
+2019-09-22 20:37:35.891027: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 20:37:35.892019: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 20:37:35.914020: server ip address: port = 10.0.75.1:8088
+2019-09-22 20:37:35.923021: create socket <socket.socket fd=608, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 20:37:35.923021: open socket for 1 clients
+2019-09-22 20:37:35.924022: server started
+2019-09-22 20:37:38.236023: new client connected ('127.0.0.1', 9595)
+2019-09-22 20:37:44.999019: client ('127.0.0.1', 9595) send commend b'download' with params [b'test.txt']
+2019-09-22 20:37:45.004021: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:37:45.005023: connection closed ('127.0.0.1', 9595)
+2019-09-22 20:37:45.005023: new client connected ('127.0.0.1', 9598)
+2019-09-22 20:39:20.468544: client ('127.0.0.1', 9598) send commend b'download' with params [b'test.txt']
+2019-09-22 20:39:20.473545: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:39:20.473545: connection closed ('127.0.0.1', 9598)
+2019-09-22 20:39:20.474544: new client connected ('127.0.0.1', 9607)
+2019-09-22 20:39:22.888544: connection closed ('127.0.0.1', 9607)
+2019-09-22 20:39:24.396545: new client connected ('127.0.0.1', 9608)
+2019-09-22 20:39:26.326563: client ('127.0.0.1', 9608) send commend b'download' with params [b'test.txt']
+2019-09-22 20:39:26.331545: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:39:26.332545: connection closed ('127.0.0.1', 9608)
+2019-09-22 20:39:26.333561: new client connected ('127.0.0.1', 9609)
+2019-09-22 20:39:36.585657: connection closed ('127.0.0.1', 9609)
+2019-09-22 20:39:51.874760: new client connected ('127.0.0.1', 9614)
+2019-09-22 20:39:56.079760: client ('127.0.0.1', 9614) send commend b'download' with params [b'test.txt']
+2019-09-22 20:39:56.084766: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:39:56.085759: connection closed ('127.0.0.1', 9614)
+2019-09-22 20:39:56.085759: new client connected ('127.0.0.1', 9615)
+2019-09-22 20:40:12.986761: connection closed ('127.0.0.1', 9615)
+2019-09-22 20:40:16.630760: new client connected ('127.0.0.1', 9620)
+2019-09-22 20:40:18.123761: client ('127.0.0.1', 9620) send commend b'download' with params [b'test.txt']
+2019-09-22 20:40:18.128760: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:40:18.129765: connection closed ('127.0.0.1', 9620)
+2019-09-22 20:40:18.129765: new client connected ('127.0.0.1', 9621)
+2019-09-22 20:40:50.164761: client ('127.0.0.1', 9621) send commend b'\tq' with params []
+2019-09-22 20:40:50.165760: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 20:40:50.165760: connection closed ('127.0.0.1', 9621)
+2019-09-22 20:40:50.166762: new client connected ('127.0.0.1', 9622)
+2019-09-22 20:40:52.235763: connection closed ('127.0.0.1', 9622)
+2019-09-22 20:40:56.039766: new client connected ('127.0.0.1', 9623)
+2019-09-22 20:40:57.487759: client ('127.0.0.1', 9623) send commend b'download' with params [b'test.txt']
+2019-09-22 20:40:57.493759: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:40:57.494759: connection closed ('127.0.0.1', 9623)
+2019-09-22 20:40:57.494759: new client connected ('127.0.0.1', 9624)
+2019-09-22 20:41:35.789760: connection closed ('127.0.0.1', 9624)
+2019-09-22 20:41:37.531760: new client connected ('127.0.0.1', 9627)
+2019-09-22 20:41:39.417763: client ('127.0.0.1', 9627) send commend b'download' with params [b'test.txt']
+2019-09-22 20:41:39.422760: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 20:41:39.423761: connection closed ('127.0.0.1', 9627)
+2019-09-22 20:41:39.423761: new client connected ('127.0.0.1', 9628)
+2019-09-22 20:41:47.288759: client ('127.0.0.1', 9628) send commend b'kill' with params []
+2019-09-22 20:41:47.288759: socket closed
+2019-09-22 20:41:47.289764: server stopped

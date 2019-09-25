@@ -1,0 +1,29 @@
+2019-09-23 16:33:46.834596: server created
+2019-09-23 16:33:46.834596: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 16:33:46.835582: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 16:33:46.850583: server ip address: port = 10.0.75.1:50001
+2019-09-23 16:33:46.852582: create socket <socket.socket fd=492, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 16:33:46.853584: open socket for 1 clients
+2019-09-23 16:33:46.854581: server started
+2019-09-23 16:33:50.119580: new client connected ('192.168.43.129', 57813)
+2019-09-23 16:34:14.349582: client ('192.168.43.129', 57813) send commend b'upload' with params [b'txt.txt']
+2019-09-23 16:35:34.798586: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:35:34.798586: connection closed ('192.168.43.129', 57813)
+2019-09-23 16:35:34.806581: new client connected ('192.168.43.129', 57824)
+2019-09-23 16:35:47.972585: client ('192.168.43.129', 57824) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:35:48.001585: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-23 16:35:48.002587: connection closed ('192.168.43.129', 57824)
+2019-09-23 16:35:48.007586: new client connected ('192.168.43.129', 57825)
+2019-09-23 16:36:04.445585: client ('192.168.43.129', 57825) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:36:04.475603: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-23 16:36:04.475603: connection closed ('192.168.43.129', 57825)
+2019-09-23 16:36:04.500582: new client connected ('192.168.43.129', 57826)
+2019-09-23 16:38:02.629584: connection closed ('192.168.43.129', 57826)
+2019-09-23 16:38:09.901582: new client connected ('192.168.43.129', 57847)
+2019-09-23 16:38:12.513595: client ('192.168.43.129', 57847) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:38:12.562584: [WinError 10053] An established connection was aborted by the software in your host machine
+2019-09-23 16:38:12.562584: connection closed ('192.168.43.129', 57847)
+2019-09-23 16:38:12.585583: new client connected ('192.168.43.129', 57848)
+2019-09-23 16:42:42.030691: client ('192.168.43.129', 57848) send commend b'kill' with params []
+2019-09-23 16:42:42.031695: socket closed
+2019-09-23 16:42:42.031695: server stopped

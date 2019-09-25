@@ -1,0 +1,15 @@
+2019-09-22 21:22:03.351692: server created
+2019-09-22 21:22:03.352692: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 21:22:03.352692: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 21:22:03.373693: server ip address: port = 10.0.75.1:8088
+2019-09-22 21:22:03.382702: create socket <socket.socket fd=524, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 21:22:03.382702: open socket for 1 clients
+2019-09-22 21:22:03.382702: server started
+2019-09-22 21:22:08.087693: new client connected ('127.0.0.1', 10116)
+2019-09-22 21:22:10.454694: client ('127.0.0.1', 10116) send commend b'274646592' with params [b'']
+2019-09-22 21:22:10.455691: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:22:10.456693: connection closed ('127.0.0.1', 10116)
+2019-09-22 21:22:10.457692: new client connected ('127.0.0.1', 10117)
+2019-09-22 21:23:00.379690: client ('127.0.0.1', 10117) send commend b'kill' with params []
+2019-09-22 21:23:00.379690: socket closed
+2019-09-22 21:23:00.380693: server stopped

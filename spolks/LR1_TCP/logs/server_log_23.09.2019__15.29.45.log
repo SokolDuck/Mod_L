@@ -1,0 +1,11 @@
+2019-09-23 15:29:45.132823: server created
+2019-09-23 15:29:45.133787: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 15:29:45.133787: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 15:29:45.147824: server ip address: port = 10.0.75.1:50001
+2019-09-23 15:29:45.150165: create socket <socket.socket fd=668, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 15:29:45.150932: open socket for 1 clients
+2019-09-23 15:29:45.150932: server started
+2019-09-23 15:29:47.210099: new client connected ('127.0.0.1', 15291)
+2019-09-23 15:29:50.234037: client ('127.0.0.1', 15291) send commend b'kill' with params []
+2019-09-23 15:29:50.234037: socket closed
+2019-09-23 15:29:50.235066: server stopped

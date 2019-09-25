@@ -1,0 +1,15 @@
+2019-09-23 16:42:43.737690: server created
+2019-09-23 16:42:43.738695: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 16:42:43.738695: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 16:42:43.755690: server ip address: port = 10.0.75.1:50001
+2019-09-23 16:42:43.757693: create socket <socket.socket fd=536, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 16:42:43.758693: open socket for 1 clients
+2019-09-23 16:42:43.758693: server started
+2019-09-23 16:42:47.487694: new client connected ('192.168.43.129', 57931)
+2019-09-23 16:42:51.007708: client ('192.168.43.129', 57931) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:42:51.032692: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-23 16:42:51.033690: connection closed ('192.168.43.129', 57931)
+2019-09-23 16:42:51.057690: new client connected ('192.168.43.129', 57932)
+2019-09-23 16:43:12.697906: client ('192.168.43.129', 57932) send commend b'kill' with params []
+2019-09-23 16:43:12.698910: socket closed
+2019-09-23 16:43:12.698910: server stopped

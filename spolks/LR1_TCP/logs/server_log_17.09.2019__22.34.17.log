@@ -1,0 +1,14 @@
+2019-09-17 22:34:17.720945: server created
+2019-09-17 22:34:17.720945: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-17 22:34:17.721941: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-17 22:34:17.748945: server ip address: port = 10.0.75.1:8088
+2019-09-17 22:34:17.760945: create socket <socket.socket fd=608, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-17 22:34:17.760945: open socket for 1 clients
+2019-09-17 22:34:17.761943: server started
+2019-09-17 22:34:21.199321: new client connected ('127.0.0.1', 2047)
+2019-09-17 22:34:30.661319: client ('127.0.0.1', 2047) send commend b'download' with params [b'test.txt']
+2019-09-17 22:34:30.663319: division by zero
+2019-09-17 22:34:30.664318: connection closed ('127.0.0.1', 2047)
+2019-09-17 22:37:14.785960: 
+2019-09-17 22:37:14.786923: socket closed
+2019-09-17 22:37:14.786923: server stopped

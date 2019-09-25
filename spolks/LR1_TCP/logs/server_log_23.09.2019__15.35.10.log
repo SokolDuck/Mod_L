@@ -1,0 +1,38 @@
+2019-09-23 15:35:10.171124: server created
+2019-09-23 15:35:10.171124: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 15:35:10.172124: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 15:35:10.189262: server ip address: port = 10.0.75.1:50001
+2019-09-23 15:35:10.191123: create socket <socket.socket fd=612, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 15:35:10.191123: open socket for 1 clients
+2019-09-23 15:35:10.192192: server started
+2019-09-23 15:35:34.193211: new client connected ('192.168.100.1', 57165)
+2019-09-23 15:35:38.393925: client ('192.168.100.1', 57165) send commend b'download' with params [b'test2.txt']
+2019-09-23 15:35:38.396209: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:35:38.397208: connection closed ('192.168.100.1', 57165)
+2019-09-23 15:35:38.397287: new client connected ('192.168.100.1', 57166)
+2019-09-23 15:36:07.211209: client ('192.168.100.1', 57166) send commend b'upload' with params [b'tcp_server.py']
+2019-09-23 15:36:07.218209: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:36:07.219207: connection closed ('192.168.100.1', 57166)
+2019-09-23 15:36:07.219207: new client connected ('192.168.100.1', 57167)
+2019-09-23 15:37:14.065160: [WinError 10051] A socket operation was attempted to an unreachable network
+2019-09-23 15:37:14.066165: connection closed ('192.168.100.1', 57167)
+2019-09-23 15:38:35.326210: new client connected ('192.168.100.1', 57171)
+2019-09-23 15:38:38.526210: client ('192.168.100.1', 57171) send commend b'time' with params []
+2019-09-23 15:38:38.527209: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:38:38.528210: connection closed ('192.168.100.1', 57171)
+2019-09-23 15:38:38.529214: new client connected ('192.168.100.1', 57172)
+2019-09-23 15:38:45.608207: client ('192.168.100.1', 57172) send commend b'echo' with params [b'test']
+2019-09-23 15:38:45.609213: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:38:45.610208: connection closed ('192.168.100.1', 57172)
+2019-09-23 15:38:45.612210: new client connected ('192.168.100.1', 57174)
+2019-09-23 15:38:50.254212: client ('192.168.100.1', 57174) send commend b'help' with params []
+2019-09-23 15:38:50.255211: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:38:50.255211: connection closed ('192.168.100.1', 57174)
+2019-09-23 15:38:50.259309: new client connected ('192.168.100.1', 57175)
+2019-09-23 15:39:09.207212: client ('192.168.100.1', 57175) send commend b'download' with params [b'test.txt']
+2019-09-23 15:39:09.214207: [WinError 10053] An established connection was aborted by the software in your host machine
+2019-09-23 15:39:09.215211: connection closed ('192.168.100.1', 57175)
+2019-09-23 15:39:09.215211: new client connected ('192.168.100.1', 57176)
+2019-09-23 15:39:20.290214: client ('192.168.100.1', 57176) send commend b'kill' with params []
+2019-09-23 15:39:20.292213: socket closed
+2019-09-23 15:39:20.298211: server stopped

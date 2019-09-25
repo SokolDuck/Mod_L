@@ -1,0 +1,33 @@
+2019-09-22 21:32:17.105346: server created
+2019-09-22 21:32:17.106339: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 21:32:17.106339: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 21:32:17.128339: server ip address: port = 10.0.75.1:8088
+2019-09-22 21:32:17.137340: create socket <socket.socket fd=556, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 21:32:17.137340: open socket for 1 clients
+2019-09-22 21:32:17.138344: server started
+2019-09-22 21:32:20.385339: new client connected ('127.0.0.1', 10168)
+2019-09-22 21:32:22.619345: client ('127.0.0.1', 10168) send commend b'upload' with params [b'txt.txt']
+2019-09-22 21:32:35.812340: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:32:35.813338: connection closed ('127.0.0.1', 10168)
+2019-09-22 21:32:35.813338: new client connected ('127.0.0.1', 10169)
+2019-09-22 21:33:23.309339: connection closed ('127.0.0.1', 10169)
+2019-09-22 21:35:24.135859: new client connected ('192.168.1.137', 54355)
+2019-09-22 21:35:38.365861: client ('192.168.1.137', 54355) send commend b'echo' with params [b'hello', b'sasha!!!!!!']
+2019-09-22 21:35:38.366864: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:35:38.366864: connection closed ('192.168.1.137', 54355)
+2019-09-22 21:35:38.374899: new client connected ('192.168.1.137', 54356)
+2019-09-22 21:35:43.513860: client ('192.168.1.137', 54356) send commend b'time' with params []
+2019-09-22 21:35:43.514865: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:35:43.514865: connection closed ('192.168.1.137', 54356)
+2019-09-22 21:35:43.623906: new client connected ('192.168.1.137', 54357)
+2019-09-22 21:36:40.289858: client ('192.168.1.137', 54357) send commend b'download' with params [b'test2.txt']
+2019-09-22 21:36:40.293864: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:36:40.294857: connection closed ('192.168.1.137', 54357)
+2019-09-22 21:36:40.728860: new client connected ('192.168.1.137', 54359)
+2019-09-22 21:37:25.292859: client ('192.168.1.137', 54359) send commend b'download' with params [b'test2.txt']
+2019-09-22 21:37:25.295858: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-22 21:37:25.295858: connection closed ('192.168.1.137', 54359)
+2019-09-22 21:37:25.494858: new client connected ('192.168.1.137', 54362)
+2019-09-22 21:37:45.830876: client ('192.168.1.137', 54362) send commend b'kill' with params []
+2019-09-22 21:37:45.831858: socket closed
+2019-09-22 21:37:45.832859: server stopped

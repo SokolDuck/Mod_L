@@ -1,0 +1,19 @@
+2019-09-23 16:32:47.081920: server created
+2019-09-23 16:32:47.082923: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 16:32:47.083920: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 16:32:47.099922: server ip address: port = 10.0.75.1:50001
+2019-09-23 16:32:47.102922: create socket <socket.socket fd=496, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 16:32:47.103923: open socket for 1 clients
+2019-09-23 16:32:47.103923: server started
+2019-09-23 16:32:51.643929: new client connected ('192.168.43.129', 57802)
+2019-09-23 16:32:57.366920: client ('192.168.43.129', 57802) send commend b'download' with params [b'test2.txt']
+2019-09-23 16:32:57.369921: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:32:57.370919: connection closed ('192.168.43.129', 57802)
+2019-09-23 16:32:57.409922: new client connected ('192.168.43.129', 57803)
+2019-09-23 16:33:11.011931: client ('192.168.43.129', 57803) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:33:11.013924: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:33:11.013924: connection closed ('192.168.43.129', 57803)
+2019-09-23 16:33:11.036924: new client connected ('192.168.43.129', 57804)
+2019-09-23 16:33:43.939582: client ('192.168.43.129', 57804) send commend b'kill' with params []
+2019-09-23 16:33:43.939582: socket closed
+2019-09-23 16:33:43.940582: server stopped

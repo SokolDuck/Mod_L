@@ -1,0 +1,42 @@
+2019-09-17 22:06:44.939029: server created
+2019-09-17 22:06:44.939029: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-17 22:06:44.940034: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-17 22:06:44.973028: server ip address: port = 10.0.75.1:8088
+2019-09-17 22:06:44.980028: create socket <socket.socket fd=512, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-17 22:06:44.980028: open socket for 1 clients
+2019-09-17 22:06:44.982029: server started
+2019-09-17 22:07:04.064554: new client connected ('127.0.0.1', 1144)
+2019-09-17 22:07:08.836177: client ('127.0.0.1', 1144) send commend b'test' with params []
+2019-09-17 22:07:15.380176: client ('127.0.0.1', 1144) send commend b'echo' with params [b'aaaaaaaaa']
+2019-09-17 22:07:20.392173: client ('127.0.0.1', 1144) send commend b'ping' with params []
+2019-09-17 22:07:22.930173: client ('127.0.0.1', 1144) send commend b'pong' with params []
+2019-09-17 22:08:09.691508: client ('127.0.0.1', 1144) send commend b'time' with params []
+2019-09-17 22:08:24.575210: client ('127.0.0.1', 1144) send commend b'download' with params [b'test.txt']
+2019-09-17 22:08:27.490232: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:08:27.491215: connection closed ('127.0.0.1', 1144)
+2019-09-17 22:14:30.215505: new client connected ('127.0.0.1', 1472)
+2019-09-17 22:14:40.984680: client ('127.0.0.1', 1472) send commend b'time' with params []
+2019-09-17 22:14:44.778688: client ('127.0.0.1', 1472) send commend b'echo' with params [b'test']
+2019-09-17 22:15:01.626825: client ('127.0.0.1', 1472) send commend b'download' with params [b'test.txt']
+2019-09-17 22:15:45.138011: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:15:45.139009: connection closed ('127.0.0.1', 1472)
+2019-09-17 22:19:18.164788: new client connected ('127.0.0.1', 1716)
+2019-09-17 22:19:26.282788: client ('127.0.0.1', 1716) send commend b'download' with params [b'test.txt']
+2019-09-17 22:19:57.154171: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:19:57.155183: connection closed ('127.0.0.1', 1716)
+2019-09-17 22:20:06.186700: new client connected ('127.0.0.1', 1755)
+2019-09-17 22:20:14.722695: client ('127.0.0.1', 1755) send commend b'download' with params [b'test.txt']
+2019-09-17 22:20:21.704699: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:20:21.705702: connection closed ('127.0.0.1', 1755)
+2019-09-17 22:20:32.938042: new client connected ('127.0.0.1', 1763)
+2019-09-17 22:20:42.213095: client ('127.0.0.1', 1763) send commend b'download' with params [b'test.txt']
+2019-09-17 22:21:03.871053: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:21:03.872053: connection closed ('127.0.0.1', 1763)
+2019-09-17 22:21:42.833054: new client connected ('127.0.0.1', 1788)
+2019-09-17 22:21:53.177053: client ('127.0.0.1', 1788) send commend b'download' with params [b'test.txt']
+2019-09-17 22:21:56.103052: a bytes-like object is required, not 'NoneType'
+2019-09-17 22:21:56.103052: connection closed ('127.0.0.1', 1788)
+2019-09-17 22:34:10.579940: new client connected ('127.0.0.1', 2043)
+2019-09-17 22:34:15.372947: client ('127.0.0.1', 2043) send commend b'kill' with params []
+2019-09-17 22:34:15.376943: socket closed
+2019-09-17 22:34:15.377944: server stopped

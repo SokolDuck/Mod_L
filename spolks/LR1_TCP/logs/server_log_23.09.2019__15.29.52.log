@@ -1,0 +1,29 @@
+2019-09-23 15:29:52.094571: server created
+2019-09-23 15:29:52.094571: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 15:29:52.095554: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 15:29:52.113199: server ip address: port = 10.0.75.1:50001
+2019-09-23 15:29:52.115662: create socket <socket.socket fd=656, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 15:29:52.116674: open socket for 1 clients
+2019-09-23 15:29:52.117671: server started
+2019-09-23 15:33:43.748986: new client connected ('192.168.100.1', 57151)
+2019-09-23 15:33:58.458526: client ('192.168.100.1', 57151) send commend b'echo' with params [b'hello', b'masha']
+2019-09-23 15:33:58.459197: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:33:58.459197: connection closed ('192.168.100.1', 57151)
+2019-09-23 15:33:58.460397: new client connected ('192.168.100.1', 57156)
+2019-09-23 15:34:06.194605: client ('192.168.100.1', 57156) send commend b'time' with params []
+2019-09-23 15:34:06.198642: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:34:06.199606: connection closed ('192.168.100.1', 57156)
+2019-09-23 15:34:06.201032: new client connected ('192.168.100.1', 57158)
+2019-09-23 15:34:28.810921: client ('192.168.100.1', 57158) send commend b'download' with params [b'test2.txt']
+2019-09-23 15:34:28.816653: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:34:28.817681: connection closed ('192.168.100.1', 57158)
+2019-09-23 15:34:28.818079: new client connected ('192.168.100.1', 57161)
+2019-09-23 15:34:50.234198: connection closed ('192.168.100.1', 57161)
+2019-09-23 15:34:55.402271: new client connected ('192.168.100.1', 57162)
+2019-09-23 15:35:00.315282: client ('192.168.100.1', 57162) send commend b'download' with params [b'test2.txt']
+2019-09-23 15:35:00.318265: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 15:35:00.318265: connection closed ('192.168.100.1', 57162)
+2019-09-23 15:35:00.319262: new client connected ('192.168.100.1', 57164)
+2019-09-23 15:35:07.830232: client ('192.168.100.1', 57164) send commend b'kill' with params []
+2019-09-23 15:35:07.831235: socket closed
+2019-09-23 15:35:07.832231: server stopped

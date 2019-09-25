@@ -1,0 +1,15 @@
+2019-09-22 21:23:02.186693: server created
+2019-09-22 21:23:02.186693: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 21:23:02.187692: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 21:23:02.207693: server ip address: port = 10.0.75.1:8088
+2019-09-22 21:23:02.221691: create socket <socket.socket fd=612, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 21:23:02.221691: open socket for 1 clients
+2019-09-22 21:23:02.222693: server started
+2019-09-22 21:23:14.907692: new client connected ('127.0.0.1', 10118)
+2019-09-22 21:23:17.581693: client ('127.0.0.1', 10118) send commend b'upload' with params [b'txt.txt']
+2019-09-22 21:23:17.581693: 'str' object has no attribute 'decode'
+2019-09-22 21:23:17.582691: connection closed ('127.0.0.1', 10118)
+2019-09-22 21:23:57.652691: new client connected ('127.0.0.1', 10123)
+2019-09-22 21:24:24.482814: client ('127.0.0.1', 10123) send commend b'kill' with params []
+2019-09-22 21:24:24.482814: socket closed
+2019-09-22 21:24:24.483811: server stopped

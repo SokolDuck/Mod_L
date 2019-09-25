@@ -1,0 +1,29 @@
+2019-09-23 16:17:28.906512: server created
+2019-09-23 16:17:28.906512: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 16:17:28.907510: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 16:17:28.923511: server ip address: port = 10.0.75.1:50001
+2019-09-23 16:17:28.927512: create socket <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 16:17:28.928511: open socket for 1 clients
+2019-09-23 16:17:28.928511: server started
+2019-09-23 16:18:22.592509: new client connected ('192.168.100.1', 57693)
+2019-09-23 16:18:26.276511: client ('192.168.100.1', 57693) send commend b'download' with params [b'tcp_server.py']
+2019-09-23 16:18:26.278513: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:18:26.279514: connection closed ('192.168.100.1', 57693)
+2019-09-23 16:18:26.282512: new client connected ('192.168.100.1', 57694)
+2019-09-23 16:19:24.746555: connection closed ('192.168.100.1', 57694)
+2019-09-23 16:19:31.198511: new client connected ('192.168.100.1', 57713)
+2019-09-23 16:19:33.568509: client ('192.168.100.1', 57713) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:19:51.226510: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:19:51.227509: connection closed ('192.168.100.1', 57713)
+2019-09-23 16:19:51.271514: new client connected ('192.168.100.1', 57716)
+2019-09-23 16:20:09.659518: client ('192.168.100.1', 57716) send commend b'upload' with params [b'txt.txt']
+2019-09-23 16:20:25.282511: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:20:25.283512: connection closed ('192.168.100.1', 57716)
+2019-09-23 16:20:57.039557: new client connected ('192.168.100.1', 57721)
+2019-09-23 16:21:00.253515: client ('192.168.100.1', 57721) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:21:02.701513: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-23 16:21:02.701513: connection closed ('192.168.100.1', 57721)
+2019-09-23 16:21:53.267514: new client connected ('192.168.100.1', 57727)
+2019-09-23 16:21:54.933510: client ('192.168.100.1', 57727) send commend b'kill' with params []
+2019-09-23 16:21:54.934515: socket closed
+2019-09-23 16:21:54.934515: server stopped

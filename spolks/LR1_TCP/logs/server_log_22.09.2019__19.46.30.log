@@ -1,0 +1,14 @@
+2019-09-22 19:46:30.711650: server created
+2019-09-22 19:46:30.712520: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-22 19:46:30.713519: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-22 19:46:30.735518: server ip address: port = 10.0.75.1:8088
+2019-09-22 19:46:30.744544: create socket <socket.socket fd=552, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 8088)>
+2019-09-22 19:46:30.745519: open socket for 1 clients
+2019-09-22 19:46:30.747868: server started
+2019-09-22 19:46:34.038739: new client connected ('127.0.0.1', 8916)
+2019-09-22 19:56:55.247416: [WinError 10054] An existing connection was forcibly closed by the remote host
+2019-09-22 19:56:55.248259: connection closed ('127.0.0.1', 8916)
+2019-09-22 19:57:07.087755: new client connected ('127.0.0.1', 9111)
+2019-09-22 19:57:08.930193: client ('127.0.0.1', 9111) send commend b'kill' with params []
+2019-09-22 19:57:08.930736: socket closed
+2019-09-22 19:57:08.931190: server stopped

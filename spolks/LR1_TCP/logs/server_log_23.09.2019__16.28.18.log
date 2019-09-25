@@ -1,0 +1,59 @@
+2019-09-23 16:28:18.404403: server created
+2019-09-23 16:28:18.404403: server storage path G:\Mod_L\spolks\LR1_TCP\storage
+2019-09-23 16:28:18.405406: server log path G:\Mod_L\spolks\LR1_TCP\logs
+2019-09-23 16:28:18.421404: server ip address: port = 10.0.75.1:50001
+2019-09-23 16:28:18.423417: create socket <socket.socket fd=524, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 50001)>
+2019-09-23 16:28:18.424402: open socket for 1 clients
+2019-09-23 16:28:18.425402: server started
+2019-09-23 16:28:22.019446: new client connected ('192.168.43.129', 57778)
+2019-09-23 16:28:25.532404: client ('192.168.43.129', 57778) send commend b'download' with params [b'test2.txt']
+2019-09-23 16:28:25.535404: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:28:25.536400: connection closed ('192.168.43.129', 57778)
+2019-09-23 16:28:25.578406: new client connected ('192.168.43.129', 57779)
+2019-09-23 16:29:04.145403: client ('192.168.43.129', 57779) send commend b'upload' with params [b'test2.txt']
+2019-09-23 16:29:04.157404: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:29:04.157404: connection closed ('192.168.43.129', 57779)
+2019-09-23 16:29:04.161399: new client connected ('192.168.43.129', 57784)
+2019-09-23 16:29:09.995403: client ('192.168.43.129', 57784) send commend b'upload' with params [b'txt.txt']
+2019-09-23 16:29:10.028402: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:29:10.028402: connection closed ('192.168.43.129', 57784)
+2019-09-23 16:29:10.029400: new client connected ('192.168.43.129', 57785)
+2019-09-23 16:29:39.457402: client ('192.168.43.129', 57785) send commend b'upload' with params [b'txt.txt']
+2019-09-23 16:29:39.461407: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:29:39.461407: connection closed ('192.168.43.129', 57785)
+2019-09-23 16:29:39.481402: new client connected ('192.168.43.129', 57790)
+2019-09-23 16:30:00.823401: client ('192.168.43.129', 57790) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:00.825405: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:00.826402: connection closed ('192.168.43.129', 57790)
+2019-09-23 16:30:00.846401: new client connected ('192.168.43.129', 57791)
+2019-09-23 16:30:03.363401: client ('192.168.43.129', 57791) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:03.365400: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:03.366405: connection closed ('192.168.43.129', 57791)
+2019-09-23 16:30:03.388402: new client connected ('192.168.43.129', 57792)
+2019-09-23 16:30:04.160405: client ('192.168.43.129', 57792) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:04.162401: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:04.163400: connection closed ('192.168.43.129', 57792)
+2019-09-23 16:30:04.189400: new client connected ('192.168.43.129', 57793)
+2019-09-23 16:30:04.736403: client ('192.168.43.129', 57793) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:04.738401: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:04.739403: connection closed ('192.168.43.129', 57793)
+2019-09-23 16:30:04.780401: new client connected ('192.168.43.129', 57794)
+2019-09-23 16:30:05.246401: client ('192.168.43.129', 57794) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:05.248403: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:05.249400: connection closed ('192.168.43.129', 57794)
+2019-09-23 16:30:05.276407: new client connected ('192.168.43.129', 57795)
+2019-09-23 16:30:05.784400: client ('192.168.43.129', 57795) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:05.786401: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:05.786401: connection closed ('192.168.43.129', 57795)
+2019-09-23 16:30:05.811404: new client connected ('192.168.43.129', 57796)
+2019-09-23 16:30:06.353400: client ('192.168.43.129', 57796) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:06.355406: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:06.355406: connection closed ('192.168.43.129', 57796)
+2019-09-23 16:30:06.387402: new client connected ('192.168.43.129', 57797)
+2019-09-23 16:30:06.980403: client ('192.168.43.129', 57797) send commend b'download' with params [b'txt.txt']
+2019-09-23 16:30:06.982405: [WinError 10038] An operation was attempted on something that is not a socket
+2019-09-23 16:30:06.982405: connection closed ('192.168.43.129', 57797)
+2019-09-23 16:30:07.002400: new client connected ('192.168.43.129', 57798)
+2019-09-23 16:31:56.140402: client ('192.168.43.129', 57798) send commend b'kill' with params []
+2019-09-23 16:31:56.141400: socket closed
+2019-09-23 16:31:56.141400: server stopped
