@@ -43,12 +43,16 @@ patterns = [pattern0, pattern1, pattern2]
 
 
 def noise_generator(pattern, percent):
+    pattern[pattern == 0] = -1
     res = np.copy(pattern)
-    loc = random.sample(range(0, 100), percent)
-    x = [i // 10 for i in loc]
-    y = [i % 10 for i in loc]
+    loc = random.sample(range(0, 36), percent)
+    x = [i // 6 for i in loc]
+    y = [i % 6 for i in loc]
+
     for i in range(0, percent):
         res[x[i], y[i]] = -pattern[x[i], y[i]]
+
+    res[res == -1] = 0
     return res
 
 
